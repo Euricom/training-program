@@ -1,0 +1,25 @@
+{
+  "name": "js-node",
+  "version": "1.0.0",
+  "description": "ES.Next Node Template",
+  "scripts": {
+    "build": "babel . -d ./build --ignore node_modules",
+    "start": "nodemon ./src/main.js --exec babel-node",
+    "lint": "eslint \"**/*.js\"",
+    "format": "prettier --write '**/*.{js,ts,css}'"
+  },
+  "author": "",
+  "license": "MIT",
+  "dependencies": {},
+  "devDependencies": {
+    "@babel/core": "^7.0.0-beta.49",
+    "@babel/node": "^7.0.0-beta.49",
+    "@babel/preset-env": "^7.0.0-beta.49",
+    "@babel/preset-stage-2": "^7.0.0-beta.49",
+    "eslint": "^4.19.1",
+    "eslint-config-airbnb-base": "^12.1.0",
+    "eslint-config-prettier": "^2.9.0",
+    "eslint-plugin-import": "^2.12.0",
+    "prettier": "^1.6.1"
+  }
+}

@@ -1,0 +1,21 @@
+{
+  "name": "ts-node",
+  "version": "1.0.0",
+  "description": "Node TypeScript Template",
+  "scripts": {
+    "start": "nodemon --exec ./node_modules/.bin/ts-node ./main.ts",
+    "lint": "tslint --project tsconfig.json --format stylish",
+    "format": "prettier --write '**/*.{ts,css}'"
+  },
+  "dependencies": {},
+  "devDependencies": {
+    "prettier": "^1.5.3",
+    "ts-node": "^6.0.5",
+    "tslint": "^5.10.0",
+    "tslint-config-airbnb": "^5.9.2",
+    "tslint-config-prettier": "^1.13.0",
+    "typescript": "^2.8.3"
+  },
+  "author": "",
+  "license": "MIT"
+}

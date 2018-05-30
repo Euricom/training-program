@@ -1,0 +1,30 @@
+{
+  "name": "js-webpack",
+  "version": "1.0.0",
+  "description": "Babel WebPack Template",
+  "scripts": {
+    "serve": "webpack-dev-server --open --inline --hot",
+    "build": "webpack",
+    "build:prod": "webpack -p",
+    "lint": "tslint --project tsconfig.json --format stylish",
+    "format": "prettier --write 'app/**/*.{ts,css}'"
+  },
+  "author": "",
+  "license": "MIT",
+  "dependencies": {},
+  "devDependencies": {
+    "cross-env": "^5.0.0",
+    "css-loader": "^0.28.11",
+    "file-loader": "^1.1.11",
+    "prettier": "^1.6.1",
+    "tslint": "^5.10.0",
+    "tslint-config-airbnb": "^5.9.2",
+    "tslint-config-prettier": "^1.13.0",
+    "typescript": "^2.8.3",
+    "style-loader": "^0.21.0",
+    "ts-loader": "^4.3.0",
+    "webpack": "^4.10.0",
+    "webpack-cli": "^2.1.4",
+    "webpack-dev-server": "^3.1.4"
+  }
+}

@@ -1,6 +1,6 @@
 # Euricom Front-End Training Program
 
-## Introduction
+## New To Web Development
 
 When you are completely new to Web development this is your starting point.
 
@@ -8,15 +8,14 @@ When you are completely new to Web development this is your starting point.
 
 - [You Don't Know JS (book series)](https://github.com/getify/You-Dont-Know-JS) – Series of books diving deep into JavaScript.
 - [Awesome JavaScript](https://github.com/micromata/awesome-javascript-learning)
-- [](https://github.com/Stanko/awesome-web-development)
+- [Awesome Web Development ](https://github.com/Stanko/awesome-web-development)
 
 ### Basic
 
 - Learn HTML/CSS
     - [How to make your first website](https://www.leveluptutorials.com/tutorials/how-to-make-your-first-website) - Basic Html & CSS
     - [Bootstrap Beginner Crash Course (youtube)](https://www.youtube.com/watch?v=5GcQtLDGXy8)
-    - [Bootstrap 3 (PluralSight)](https://app.pluralsight.com/library/courses/bootstrap-3)
-    - [Bootstrap Tutorial for Beginners (youtube)](https://www.youtube.com/watch?v=aTLRdrRQyN4)
+    - [Bootstrap 3 (PluralSight)](https://app.pluralsight.com/library/courses/bootstrap-3) or [Bootstrap Tutorial for Beginners (youtube)](https://www.youtube.com/watch?v=aTLRdrRQyN4)
     - [CSS Grid](https://cssgrid.io/)
     - [Flexbox Froggy](http://flexboxfroggy.com/) - Fun CSS Flexbox tutorial
 
@@ -78,12 +77,12 @@ Make sure you know:
 
 - Express
 - Mongoose & MongoDB
-- GraphQL
-
 
 ### Elective Coursework
 
+- Apollo GraphQL Server
 - Serverless
+- Docker
 
 ---
 
@@ -150,15 +149,21 @@ Make sure you know:
 
 ### Improve
 
-- [Advanced State Management in React (FrontEndMasters)](https://frontendmasters.com/courses/react-state/)
-- [Advanced React Patterns (FrontEndMasters)](https://frontendmasters.com/courses/advanced-react-patterns/)
-- [Testing React Applications (FrontEndMasters)](https://frontendmasters.com/courses/testing-react/)
-- [Build a Server-rendered ReactJS Application with Next.js (EggHead.io)](https://egghead.io/courses/build-a-server-rendered-reactjs-application-with-next-js) - Next
-- Styled-components
-- TypeScript
+- Improve React
+    + [Advanced State Management in React (FrontEndMasters)](https://frontendmasters.com/courses/react-state/)
+    + [Advanced React Patterns (FrontEndMasters)](https://frontendmasters.com/courses/advanced-react-patterns/)
+    + [Testing React Applications (FrontEndMasters)](https://frontendmasters.com/courses/testing-react/)
+    + [Build a Server-rendered ReactJS Application with Next.js (EggHead.io)](https://egghead.io/courses/build-a-server-rendered-reactjs-application-with-next-js) - Next
+
+- Learn CSS in JS
+    - Styled-components
+
+- Learn TypeScript
     - [TypeScript Basics](https://app.pluralsight.com/library/courses/typescript/)
     - [TypeScript Fundamentals (FrontEndMasters)](https://frontendmasters.com/courses/typescript/)
-- [Full-stack GraphQL with Apollo](https://www.leveluptutorials.com/tutorials/full-stack-graphql-with-apollo-meteor-and-react)
+
+- Learn GraphQL
+    + [Full-stack GraphQL with Apollo](https://www.leveluptutorials.com/tutorials/full-stack-graphql-with-apollo-meteor-and-react)
 
 ### Elective Coursework
 
@@ -194,13 +199,15 @@ Make sure you know:
 
 ### Improve
 
-- [Unit Testing Vue.js Components with the Official Vue Testing Tools and Jest](https://alexjoverm.github.io/series/Unit-Testing-Vue-js-Components-with-the-Official-Vue-Testing-Tools-and-Jest/)
-- [Advanced Vue.js Features from the Ground Up (FrontEndMasters)](https://frontendmasters.com/courses/advanced-vue/)
-- [JavaScript - From Fundamentals to Functional JS (FrontEndMasters)](https://frontendmasters.com/courses/js-fundamentals-functional-v2/)
-- [Create a News App with Vue.js and Nuxt (EggHead.io)](https://egghead.io/courses/create-a-news-app-with-vue-js-and-nuxt) - Nuxt
-- TypeScript
-    - [TypeScript Basics](https://app.pluralsight.com/library/courses/typescript/)
-    - [TypeScript Fundamentals (FrontEndMasters)](https://frontendmasters.com/courses/typescript/)
+- Improve VueJS
+
+    + [Unit Testing Vue.js Components with the Official Vue Testing Tools and Jest](https://alexjoverm.github.io/series/Unit-Testing-Vue-js-Components-with-the-Official-Vue-Testing-Tools-and-Jest/)
+    + [Advanced Vue.js Features from the Ground Up (FrontEndMasters)](https://frontendmasters.com/courses/advanced-vue/)
+    + [Create a News App with Vue.js and Nuxt (EggHead.io)](https://egghead.io/courses/create-a-news-app-with-vue-js-and-nuxt) - Nuxt
+
+- Learn TypeScript
+    + [TypeScript Basics](https://app.pluralsight.com/library/courses/typescript/)
+    + [TypeScript Fundamentals (FrontEndMasters)](https://frontendmasters.com/courses/typescript/)
 
 ### Elective Coursework
 

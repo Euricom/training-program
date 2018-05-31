@@ -29,8 +29,8 @@
   // JS(ON)
   // ===
   "javascript.validate.enable": false,
-  "javascript.format.enable": false,
-  "json.format.enable": false,
+  "javascript.format.enable": true,
+  "json.format.enable": true,
   "eslint.validate": ["javascript", "javascriptreact", "typescript", "typescriptreact"],
   "eslint.enable": false,
   "tslint.enable": true,

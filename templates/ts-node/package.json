@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "description": "Node TypeScript Template",
   "scripts": {
+    "build": "tsc --outdir ./build",
     "start": "nodemon --exec ./node_modules/.bin/ts-node ./main.ts",
     "lint": "tslint --project tsconfig.json --format stylish",
     "format": "prettier --write '**/*.{ts,css}'"
@@ -17,6 +18,6 @@
     "tslint-config-prettier": "^1.13.0",
     "typescript": "^2.8.3"
   },
-  "author": "",
+  "author": "peter.cosemans@euri.com",
   "license": "MIT"
 }

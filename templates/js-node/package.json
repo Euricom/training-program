@@ -12,6 +12,7 @@
   "license": "MIT",
   "dependencies": {},
   "devDependencies": {
+    "@babel/cli": "^7.0.0-beta.49",
     "@babel/core": "^7.0.0-beta.49",
     "@babel/node": "^7.0.0-beta.49",
     "@babel/preset-env": "^7.0.0-beta.49",
@@ -20,7 +21,6 @@
     "eslint-config-airbnb-base": "^12.1.0",
     "eslint-config-prettier": "^2.9.0",
     "eslint-plugin-import": "^2.12.0",
-    "nodemon": "^1.17.5",
     "prettier": "^1.6.1"
   }
 }

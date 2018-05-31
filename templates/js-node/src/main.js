@@ -1,3 +1,4 @@
-import path from 'path';
+import { add } from './myLib';
 
-console.log('Current file:', path.join(__dirname, __filename));
+const result = add(1, 1000);
+console.log(result);

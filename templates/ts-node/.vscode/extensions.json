@@ -10,7 +10,7 @@
     "christian-kohler.path-intellisense",
     // Color Hightlight
     "naumovs.color-highlight",
-    // ESLint
-    "dbaeumer.vscode-eslint",
+    // TSLint
+    "eg2.tslint"
   ]
 }

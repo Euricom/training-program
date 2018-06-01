@@ -1,5 +1,5 @@
 function sayHello(name: string) {
-  const message = 'hello world';
+  const message = 'Hello ';
   console.log(message + name);
 }
-sayHello('peter');
+sayHello('Typescript');

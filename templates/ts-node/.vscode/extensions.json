@@ -11,6 +11,8 @@
     // Color Hightlight
     "naumovs.color-highlight",
     // TSLint
-    "eg2.tslint"
+    "eg2.tslint",
+    // json to ts
+    "GregorBiswanger.json2ts",
   ]
 }

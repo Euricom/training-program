@@ -1,3 +1,3 @@
 import './style.css';
 
-console.log('Hello from ES6+');
+console.log('Hello from ES6+')

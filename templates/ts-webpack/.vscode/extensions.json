@@ -4,13 +4,27 @@
   "recommendations": [
     // Format-on-save with Prettier
     "esbenp.prettier-vscode",
+    // SCSS intellisense
+    "mrmlnc.vscode-scss",
     // npm intellisense
     "christian-kohler.npm-intellisense",
     // path intellisense
     "christian-kohler.path-intellisense",
     // Color Hightlight
     "naumovs.color-highlight",
-    // ESLint
-    "dbaeumer.vscode-eslint",
+    // Auto Close Tag
+    "formulahendry.auto-close-tag",
+    // Auto Rename Tag
+    "formulahendry.auto-rename-tag",
+    // Sorting HTML and Jade attributes
+    "mrmlnc.vscode-attrs-sorter",
+    // js-beautify for VS Code (only used for html format)
+    "HookyQR.beautify",
+    // tslint
+    "eg2.tslint",
+    // json to ts
+    "GregorBiswanger.json2ts",
+    // Chrome debugger
+    "msjsdiag.debugger-for-chrome"
   ]
 }

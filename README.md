@@ -12,6 +12,9 @@ When you are completely new to Web development this is your starting point.
 
 ### Basic
 
+- Introduction of Web Development
+    - [Introduction to Web Development (FrontEndMasters)](https://frontendmasters.com/courses/web-development/)
+
 - Learn HTML/CSS
     - [How to make your first website](https://www.leveluptutorials.com/tutorials/how-to-make-your-first-website) - Basic Html & CSS
     - [Bootstrap Beginner Crash Course (youtube)](https://www.youtube.com/watch?v=5GcQtLDGXy8)
@@ -53,6 +56,9 @@ Make sure you know:
 - Improve JavaScript
     - [FrontEndMasters: Functional-Light JavaScript](https://frontendmasters.com/courses/functional-javascript-v2/)
     - [Jest Crash Course (youtube)](https://www.youtube.com/watch?v=7r4xVDI2vho) - Unit Testing in JavaScript
+
+- Improve VSCode
+    + https://www.youtube.com/watch?v=OOG3xcUQY5k
 
 ### Elective Coursework
 

@@ -1,6 +1,6 @@
 import 'expect-more-jest';
 
-import * as IntlPolyfill from 'intl';
+import * as IntlPolyfill from 'intl'; // tslint:disable-line
 
 // Jest and node only support English locale
 // Therefore we add the polyfill for unit testing

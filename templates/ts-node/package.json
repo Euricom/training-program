@@ -12,6 +12,7 @@
   },
   "dependencies": {},
   "devDependencies": {
+    "@types/node": "^10.3.0",
     "jest": "^23.1.0",
     "jest-watch-typeahead": "^0.1.0",
     "nodemon": "^1.17.5",

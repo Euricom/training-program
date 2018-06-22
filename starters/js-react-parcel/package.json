@@ -1,0 +1,47 @@
+{
+  "name": "js-webpack",
+  "version": "1.0.0",
+  "description": "Babel WebPack Template",
+  "scripts": {
+    "serve": "cross-env NODE_ENV=development parcel serve src/index.html",
+    "build": "cross-env NODE_ENV=development parcel build src/index.html --no-minify",
+    "build:prod": "cross-env NODE_ENV=production parcel build src/index.html --detailed-report",
+    "lint": "eslint \"src/**/*.{js, jsx}\"",
+    "format": "prettier --write 'src/**/*.{js,jsx,css}'",
+    "test:ci": "jest",
+    "test": "jest --watch --notify"
+  },
+  "author": "",
+  "license": "MIT",
+  "dependencies": {
+    "intl": "^1.2.5",
+    "react": "^16.4.1",
+    "react-dom": "^16.4.1"
+  },
+  "devDependencies": {
+    "babel-cli": "^6.26.0",
+    "babel-core": "^6.26.3",
+    "babel-jest": "^23.0.1",
+    "babel-preset-react-app": "^3.1.1",
+    "cross-env": "^5.0.0",
+    "eslint": "^4.19.1",
+    "eslint-config-airbnb": "^17.0.0",
+    "eslint-config-prettier": "^2.9.0",
+    "eslint-plugin-import": "^2.12.0",
+    "eslint-plugin-jsx-a11y": "^6.0.3",
+    "eslint-plugin-react": "^7.9.1",
+    "jasmine-expect": "^3.8.3",
+    "jest": "^23.1.0",
+    "jest-watch-typeahead": "^0.1.0",
+    "parcel-bundler": "latest",
+    "prettier": "^1.6.1"
+  },
+  "jest": {
+    "verbose": false,
+    "setupTestFrameworkScriptFile": "<rootDir>/test/jest.setup.js",
+    "watchPlugins": [
+      "jest-watch-typeahead/filename",
+      "jest-watch-typeahead/testname"
+    ]
+  }
+}

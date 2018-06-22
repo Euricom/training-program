@@ -1,0 +1,50 @@
+{
+  "name": "js-webpack",
+  "version": "1.0.0",
+  "description": "Babel WebPack Template",
+  "scripts": {
+    "serve": "cross-env NODE_ENV=development parcel serve src/index.html",
+    "build": "cross-env NODE_ENV=development parcel build src/index.html --no-minify",
+    "build:prod": "cross-env NODE_ENV=production parcel build src/index.html --detailed-report",
+    "lint": "eslint \"src/**/*.{js,vue}\"",
+    "format": "prettier --write 'src/**/*.{js,css,vue}'",
+    "test:ci": "jest",
+    "test": "jest --watch --notify"
+  },
+  "author": "",
+  "license": "MIT",
+  "dependencies": {
+    "intl": "^1.2.5",
+    "vue": "^2.5.16",
+    "vue-hot-reload-api": "^2.3.0"
+  },
+  "devDependencies": {
+    "@vue/component-compiler-utils": "^2.0.0",
+    "babel-cli": "^6.26.0",
+    "babel-core": "^6.26.3",
+    "babel-jest": "^23.0.1",
+    "babel-preset-env": "^1.7.0",
+    "babel-preset-stage-2": "^6.24.1",
+    "cross-env": "^5.0.0",
+    "eslint": "^4.19.1",
+    "eslint-config-airbnb-base": "^12.1.0",
+    "eslint-config-prettier": "^2.9.0",
+    "eslint-plugin-import": "^2.12.0",
+    "eslint-plugin-vue": "^4.5.0",
+    "jasmine-expect": "^3.8.3",
+    "jest": "^23.1.0",
+    "jest-watch-typeahead": "^0.1.0",
+    "parcel-bundler": "latest",
+    "parcel-plugin-vue-inlinesvg": "^1.0.4",
+    "prettier": "^1.6.1",
+    "vue-template-compiler": "^2.5.16"
+  },
+  "jest": {
+    "verbose": false,
+    "setupTestFrameworkScriptFile": "<rootDir>/test/jest.setup.js",
+    "watchPlugins": [
+      "jest-watch-typeahead/filename",
+      "jest-watch-typeahead/testname"
+    ]
+  }
+}

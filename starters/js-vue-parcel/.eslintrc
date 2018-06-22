@@ -1,0 +1,18 @@
+{
+  "extends": ["airbnb-base", "plugin:vue/essential", "prettier"],
+  "plugins": [
+    "vue"
+  ],
+  "globals": {},
+  "env": {
+    "es6": true,
+    "browser": true,
+    "node": true,
+    "jest": true
+  },
+  "rules": {
+    "no-console": [0, ""],
+    "array-callback-return": "off",
+    "consistent-return": "off"
+  }
+}

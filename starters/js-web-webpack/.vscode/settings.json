@@ -35,6 +35,13 @@
   "beautify.language": {
     "html": ["htm", "html"]
   },
+  "beautify.ignore": [
+      "**/*.js",
+      "**/*.ts",
+      "**/*.json",
+      "**/*.css",
+      "**/*.scss"
+  ],
   "attrsSorter.order": [
     "id",
     "ref",

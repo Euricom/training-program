@@ -23,11 +23,12 @@ When you are completely new to Web development this is your starting point.
     - [Flexbox Froggy](http://flexboxfroggy.com/) - Fun CSS Flexbox tutorial
 
 - Learn JavaScript
-    - [Deep JavaScript Foundations (FrontEndMasters)](https://frontendmasters.com/courses/javascript-foundations/) - JavaScript Concepts
+    - [Deep JavaScript Foundations V2 (FrontEndMasters)](https://frontendmasters.com/courses/javascript-foundations/) Or [Advanced JavaScript V1 (PluralSight)](https://app.pluralsight.com/library/courses/advanced-javascript) - Same course different platform
     - [JavaScript - From Fundamentals to Functional JS (FrontEndMasters)](https://frontendmasters.com/courses/js-fundamentals-functional-v2/)
     - [TypeScript Tutorial (youtube)](https://www.youtube.com/watch?v=-PR_XqW9JJU) - Quick Intro
 
-- Learn Git
+- Learn Font-end Tooling
+    - [Building a JavaScript Development Environment](https://app.pluralsight.com/library/courses/javascript-development-environment/table-of-contents)
     - [Practical Git for Everyday Professional Use (EggHead.io)](https://egghead.io/courses/practical-git-for-everyday-professional-use)
 
 Make sure you know:
@@ -49,9 +50,6 @@ Make sure you know:
     - Git
 
 ### Improve
-
-- Improve Tooling
-    - [Building a JavaScript Development Environment](https://app.pluralsight.com/library/courses/javascript-development-environment/table-of-contents)
 
 - Improve JavaScript
     - [FrontEndMasters: Functional-Light JavaScript](https://frontendmasters.com/courses/functional-javascript-v2/)

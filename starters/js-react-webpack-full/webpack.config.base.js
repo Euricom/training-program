@@ -1,3 +1,4 @@
+/* eslint-disable */
 const getClientEnvironment = require('./env');
 const autoprefixer = require('autoprefixer');
 const webpack = require('webpack');
@@ -11,6 +12,7 @@ const CopyWebpackPlugin = require('copy-webpack-plugin');
 const FriendlyErrorsWebpackPlugin = require('friendly-errors-webpack-plugin');
 const CleanWebpackPlugin = require('clean-webpack-plugin');
 const CaseSensitivePathsPlugin = require('case-sensitive-paths-webpack-plugin');
+const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 
 // Webpack uses `publicPath` to determine where the app is being served from.
 // In development, we always serve from the root. This makes config easier.
@@ -23,7 +25,7 @@ const env = getClientEnvironment(publicUrl);
 // common function to get style loaders
 const getStyleLoaders = (cssOptions, preProcessor) => {
   const loaders = [
-    require.resolve('style-loader'),
+    process.env.NODE_ENV === 'development' ? require.resolve('style-loader') : MiniCssExtractPlugin.loader,
     {
       loader: require.resolve('css-loader'),
       options: cssOptions,
@@ -51,17 +53,6 @@ const getStyleLoaders = (cssOptions, preProcessor) => {
 };
 
 module.exports = {
-  entry: [
-    // Add the polyfills:
-    require.resolve('./polyfills'),
-    // Note: instead of the default WebpackDevServer client, we use a custom one
-    // to bring better experience for Create React App users. You can replace
-    // the line below with these two lines if you prefer the stock client:
-    // require.resolve('webpack-dev-server/client') + '?/',
-    // require.resolve('webpack/hot/dev-server'),
-    require.resolve('react-dev-utils/webpackHotDevClient'),
-    './src/index.jsx',
-  ],
   // Turn off performance processing because we utilize
   // our own hints via the FileSizeReporter
   performance: false,
@@ -115,11 +106,19 @@ module.exports = {
           // The preset includes JSX, Flow, and some ESnext features.
           {
             test: /\.(js|jsx|mjs)$/,
-            loader: require.resolve('babel-loader'),
-            options: {
-              cacheDirectory: true,
-              highlightCode: true,
-            },
+            use: [
+              {
+                loader: require.resolve('cache-loader'),
+              },
+              {
+                loader: require.resolve('babel-loader'),
+                options: {
+                  cacheDirectory: true,
+                  highlightCode: true,
+                  compact: process.env.NODE_ENV == 'development' ? false : true,
+                },
+              },
+            ],
           },
           // "postcss" loader applies autoprefixer to our CSS.
           // "css" loader resolves paths in CSS and adds assets as dependencies.
@@ -192,6 +191,7 @@ module.exports = {
   stats: {
     assets: true,
     modules: false,
+    children: false,
   },
 
   plugins: [
@@ -207,9 +207,6 @@ module.exports = {
     // Makes some environment variables available to the JS code, for example:
     // if (process.env.NODE_ENV === 'development') { ... }. See `./env.js`.
     new webpack.DefinePlugin(env.stringified),
-
-    // This is necessary to emit hot updates (currently CSS only):
-    new webpack.HotModuleReplacementPlugin(),
 
     // Prevent mistype casing in a path
     new CaseSensitivePathsPlugin(),

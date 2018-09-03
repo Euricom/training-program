@@ -1,6 +1,6 @@
-# ts-webpack
+# js-web-webpack-babel7
 
-This is a starter project to get up and running with ES6+ in the browser quick and easy. 
+This is a starter project to get up and running with ES6+ in the browser quick and easy.
 
 ## Prerequisites
 
@@ -29,3 +29,4 @@ $ yarn test
 - [x] Prettier code formatting
 - [x] Unit Testing with Jest
 - [x] ES linting with ESLint and [AirBnb Style Guide](https://github.com/airbnb/javascript)
+- [x] Upgraded to Babel 7

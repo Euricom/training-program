@@ -1,0 +1,16 @@
+{
+  // Event Triggers
+  "editor.formatOnSave": true,
+  "eslint.autoFixOnSave": true,
+  "eslint.run": "onSave",
+
+  // JS(ON)
+  "javascript.validate.enable": false,
+  "javascript.format.enable": false,
+  "json.format.enable": false,
+  "eslint.validate": ["javascript", "javascriptreact", "vue", "typescript",
+    "typescriptreact"
+  ],
+  "eslint.enable": true,
+  "tslint.enable": false
+}

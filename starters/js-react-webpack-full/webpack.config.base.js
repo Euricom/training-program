@@ -12,13 +12,30 @@ const CleanWebpackPlugin = require('clean-webpack-plugin');
 const CaseSensitivePathsPlugin = require('case-sensitive-paths-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 
+function getPublicPath() {
+  if (process.env.PUBLIC_PATH) {
+    return process.env.PUBLIC_PATH;
+  }
+  return '/';
+}
+
 // Webpack uses `publicPath` to determine where the app is being served from.
 // In development, we always serve from the root. This makes config easier.
-const publicPath = '/';
+const publicPath = getPublicPath();
+
+// `publicUrl` is just like `publicPath`, but we will provide it to our app
+// as %PUBLIC_URL% in `index.html` and `process.env.PUBLIC_URL` in JavaScript.
+// Omit trailing slash as %PUBLIC_PATH%/xyz looks better than %PUBLIC_PATH%xyz.
+const publicUrl = publicPath.slice(0, -1);
 
 // Get environment variables to inject into our app.
-const publicUrl = '';
 const env = getClientEnvironment(publicUrl);
+
+// Dump build environment
+console.log('Build Environment');
+console.log('  VERSION:    ', env.raw.BUILD_VERSION);
+console.log('  NODE_ENV:   ', env.raw.NODE_ENV);
+console.log('  PUBLIC_URL: ', publicPath);
 
 // common function to get style loaders
 const getStyleLoaders = (cssOptions, preProcessor) => {

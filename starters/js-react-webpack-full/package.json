@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "serve": "webpack-dev-server --config ./webpack.config.dev.js --mode development --hot",
+    "serve": "webpack-dev-server --config ./webpack.config.dev.js --open",
     "build": "webpack --config ./webpack.config.dev.js",
     "build:prod": "webpack --config ./webpack.config.prod.js",
     "lint": "eslint src/**/*.js",
@@ -14,17 +14,26 @@
   "author": "“Peter <“peter.cosemans@gmail.com”>",
   "license": "ISC",
   "dependencies": {
-    "react-hot-loader": "^4.3.3",
     "date-fns": "^1.29.0",
     "react": "^16.4.1",
     "react-dom": "^16.4.1",
+    "react-hot-loader": "^4.3.3",
     "webpack-manifest-plugin": "^2.0.3"
   },
   "devDependencies": {
+    "@babel/core": "^7.0.0",
+    "@babel/plugin-proposal-class-properties": "^7.0.0",
+    "@babel/plugin-proposal-object-rest-spread": "^7.0.0",
+    "@babel/plugin-syntax-dynamic-import": "^7.0.0",
+    "@babel/plugin-transform-runtime": "^7.0.0",
+    "@babel/preset-env": "^7.0.0",
+    "@babel/preset-flow": "^7.0.0",
+    "@babel/preset-react": "^7.0.0",
     "autoprefixer": "^8.6.4",
-    "babel-core": "^6.26.3",
-    "babel-loader": "^7.1.4",
-    "babel-preset-react-app": "^3.1.2",
+    "babel-core": "7.0.0-bridge.0",
+    "babel-loader": "^8.0.2",
+    "babel-plugin-react-require": "^3.0.0",
+    "babel-plugin-transform-react-remove-prop-types": "^0.4.15",
     "cache-loader": "^1.2.2",
     "case-sensitive-paths-webpack-plugin": "^2.1.2",
     "clean-webpack-plugin": "^0.1.19",
@@ -58,9 +67,8 @@
   },
   "browserslist": {
     "development": [
-      "last 2 chrome versions",
-      "last 2 firefox versions",
-      "last 2 edge versions"
+      "last 1 chrome versions",
+      "last 1 firefox versions"
     ],
     "production": [
       ">0.25%"

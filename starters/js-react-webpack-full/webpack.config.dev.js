@@ -16,8 +16,6 @@ module.exports = merge(baseWebpackConfig, {
   entry: [
     // Add the polyfills:
     require.resolve('./polyfills'),
-    // require.resolve('webpack-dev-server/client') + '?/',
-    // require.resolve('webpack/hot/dev-server'),
     './src/index.jsx',
   ],
   plugins: [
@@ -45,6 +43,6 @@ module.exports = merge(baseWebpackConfig, {
     contentBase: './public',
     // It is important to tell WebpackDevServer to use the same "root" path
     // as we specified in the config. In development, we always serve from /.
-    publicPath: '.',
+    publicPath: '/',
   },
 });

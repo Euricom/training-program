@@ -5,8 +5,6 @@ const webpack = require('webpack');
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const InterpolateHtmlPlugin = require('interpolate-html-plugin');
-const WatchMissingNodeModulesPlugin = require('react-dev-utils/WatchMissingNodeModulesPlugin');
-const getCSSModuleLocalIdent = require('react-dev-utils/getCSSModuleLocalIdent');
 const ManifestPlugin = require('webpack-manifest-plugin');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
 const FriendlyErrorsWebpackPlugin = require('friendly-errors-webpack-plugin');
@@ -132,16 +130,6 @@ module.exports = {
               importLoaders: 1,
             }),
           },
-          // Adds support for CSS Modules (https://github.com/css-modules/css-modules)
-          // using the extension .module.css
-          {
-            test: /\.module\.css$/,
-            use: getStyleLoaders({
-              importLoaders: 1,
-              modules: true,
-              getLocalIdent: getCSSModuleLocalIdent,
-            }),
-          },
           // Opt-in support for SASS (using .scss or .sass extensions).
           // Chains the sass-loader with the css-loader and the style-loader
           // to immediately apply all styles to the DOM.
@@ -151,19 +139,6 @@ module.exports = {
             test: /\.(scss|sass)$/,
             exclude: /\.module\.(scss|sass)$/,
             use: getStyleLoaders({ importLoaders: 2 }, 'sass-loader'),
-          },
-          // Adds support for CSS Modules, but using SASS
-          // using the extension .module.scss or .module.sass
-          {
-            test: /\.module\.(scss|sass)$/,
-            use: getStyleLoaders(
-              {
-                importLoaders: 2,
-                modules: true,
-                getLocalIdent: getCSSModuleLocalIdent,
-              },
-              'sass-loader',
-            ),
           },
           // The GraphQL loader preprocesses GraphQL queries in .graphql files.
           // {
@@ -210,9 +185,6 @@ module.exports = {
 
     // Prevent mistype casing in a path
     new CaseSensitivePathsPlugin(),
-
-    // Forces a project rebuild when installing modules
-    new WatchMissingNodeModulesPlugin(path.resolve(__dirname, 'node_modules')),
 
     // Generate a manifest file which contains a mapping of all asset filenames
     new ManifestPlugin({

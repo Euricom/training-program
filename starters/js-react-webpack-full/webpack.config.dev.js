@@ -16,12 +16,8 @@ module.exports = merge(baseWebpackConfig, {
   entry: [
     // Add the polyfills:
     require.resolve('./polyfills'),
-    // Note: instead of the default WebpackDevServer client, we use a custom one
-    // to bring better experience for Create React App users. You can replace
-    // the line below with these two lines if you prefer the stock client:
     // require.resolve('webpack-dev-server/client') + '?/',
     // require.resolve('webpack/hot/dev-server'),
-    require.resolve('react-dev-utils/webpackHotDevClient'),
     './src/index.jsx',
   ],
   plugins: [
@@ -42,7 +38,7 @@ module.exports = merge(baseWebpackConfig, {
     hot: true,
     // WebpackDevServer is noisy by default so we emit custom message instead
     // by listening to the compiler events with `compiler.hooks[...].tap` calls above.
-    quiet: true,
+    quiet: false,
     // Enable/disable HTTPS
     https: false,
     // WebPackDev server serves physical files from

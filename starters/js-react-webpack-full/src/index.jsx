@@ -1,10 +1,11 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import { hot } from 'react-hot-loader';
 
 import './test.scss';
 
-const title = 'My Minimal React Webpack Babel Setup';
+const App = () => <div>My Minimal React Webpack Babel Setup</div>;
 
-ReactDOM.render(<div> {title} </div>, document.getElementById('app'));
+const HotApp = hot(module)(App);
 
-module.hot.accept();
+ReactDOM.render(HotApp, document.getElementById('app'));

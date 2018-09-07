@@ -5,7 +5,7 @@
 ## Roadmaps
 
 - [DotNet-develper-roadmap](./dotnet/README.md)
-- [JavaScript-developer-roadmap](./javascript/README.md)
+- [JavaScript-developer-roadmap](./javascript/javascript-developer.md)
 
 ## Contribution
 

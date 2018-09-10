@@ -1,8 +1,8 @@
-# Euricom Front-End Training Program
+# Euricom JavaScript Training Program
 
 ## JavaScript Developer Roadmap
 
-When you are completely new to Web development this is your starting point.
+When you are completely new to Web/JavaScript development this is your starting point.
 
 <img src="./web-developer-roadmap.png" />
 
@@ -35,13 +35,13 @@ When you are completely new to Web development this is your starting point.
 
 ### Next Step
 
-Front-End Developer
+JavaScript Front-End Developer
 
 - [React Developer Roadmap](./react-developer-roadmap.md)
 - [Angular Developer Roadmap](./angular-developer-roadmap.md)
 - [VueJS Developer Roadmap](./vuejs-developer-roadmap.md)
 
-Back-end Developer
+JavaScript Back-end Developer
 
 - [NodeJS Developer Roadmap](./nodejs-developer-roadmap.md)
 
@@ -78,6 +78,6 @@ Make sure you know:
 - RollUp
 - Unit Testing with Mocha / Chai
 - JQuery
-- Top commertial trainings (not for Euricom)
+- Top commertial trainings
     - [ES6 for Everyone (Wes Bos)](https://es6.io/)
 

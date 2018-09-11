@@ -72,6 +72,9 @@ Make sure you know:
 - Improve VSCode
     + https://www.youtube.com/watch?v=OOG3xcUQY5k
 
+- Improve GIT
+    + [Git CheatSheet](http://ndpsoftware.com/git-cheatsheet.html)
+
 ### Elective Coursework
 
 - WebPack

@@ -4,8 +4,14 @@
 
 ## Roadmaps
 
-- [DotNet-develper-roadmap](./dotnet/README.md)
-- [JavaScript-developer-roadmap](./javascript/javascript-developer.md)
+- [DotNet Develper Roadmap](./dotnet/README.md)
+- [JavaScript Developer Roadmap](./javascript/README.md)
+
+Skip the intro/basics to go to:
+
+- [React Developer Roadmap](./javascript/roadmaps/react-developer-roadmap.md)
+- [VueJS Developer Roadmap](./javascript/roadmaps/vuejs-developer-roadmap.md)
+- [Angular Developer Roadmap](./javascript/roadmaps/angular-developer-roadmap.md)
 
 ## Contribution
 

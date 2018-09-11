@@ -12,10 +12,12 @@ THIS IS WORK IN PROGRESS
 ### Basic
 
 - Learn TypeScript
-    - [TypeScript Basics (PluralSight)](https://app.pluralsight.com/library/courses/typescript/)
+    - [TypeScript Fundamentals (FrontendMasters)](https://frontendmasters.com/courses/typescript/)
 
 - Learn RxJS
     - [RxJS Observables Crash Course (youtube)](https://www.youtube.com/watch?v=ei7FsoXKPl0)
+    - [Adding Even More Fun to Functional Programming With RXJS (youtube)](
+https://www.youtube.com/watch?v=8EExNfm0gt4)
 
 - Learn Angular
     - [Building Awesomer Apps with Angular (FrontEndMasters)](https://frontendmasters.com/courses/building-apps-angular/)

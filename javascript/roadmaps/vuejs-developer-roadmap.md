@@ -2,21 +2,23 @@
 
 ## VueJS Developer Roadmap
 
+<img src="./vue-developer-roadmap.png" />
+
 ### Info
 
 - [Official Guide](http://vuejs.org/guide/)
 - [StyleGuide](https://vuejs.org/v2/style-guide/)
 - [Awesome Vue.js](https://github.com/vuejs/awesome-vue)
 
-### Basic
-
-- [Introduction to Vue.js (FrontEndMasters)](https://frontendmasters.com/courses/vue/)
-
 ### Starter
 
 - [@vue/cli - CLI for rapid Vue.js development](https://github.com/vuejs/vue-cli)
 
-### Improve
+### Personal Must Know
+
+- [Introduction to Vue.js (FrontEndMasters)](https://frontendmasters.com/courses/vue/)
+
+### Good To Know
 
 - Improve VueJS
 
@@ -28,10 +30,14 @@
     + [TypeScript Basics](https://app.pluralsight.com/library/courses/typescript/)
     + [TypeScript Fundamentals (FrontEndMasters)](https://frontendmasters.com/courses/typescript/)
 
-### Elective Coursework
+### Possibilities
 
 - StoryBook for VueJS
 - NodeJS (Express)
 - GraphQL
 - Electron
 - VuePress
+
+### Alternative training (commercial)
+
+- None

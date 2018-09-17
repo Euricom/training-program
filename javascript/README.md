@@ -4,7 +4,7 @@
 
 When you are completely new to Web/JavaScript development this is your starting point.
 
-<img src="./web-developer-roadmap.png" />
+<img src="./roadmaps/web-developer-roadmap.png" />
 
 ### Info
 
@@ -12,7 +12,7 @@ When you are completely new to Web/JavaScript development this is your starting 
 - [Awesome JavaScript](https://github.com/micromata/awesome-javascript-learning)
 - [Awesome Web Development ](https://github.com/Stanko/awesome-web-development)
 
-### Basic
+### Personal Must Know
 
 - Introduction of Web Development
     - [Introduction to Web Development (FrontEndMasters)](https://frontendmasters.com/courses/web-development/)
@@ -37,9 +37,9 @@ When you are completely new to Web/JavaScript development this is your starting 
 
 JavaScript Front-End Developer
 
-- [React Developer Roadmap](./react-developer-roadmap.md)
-- [Angular Developer Roadmap](./angular-developer-roadmap.md)
-- [VueJS Developer Roadmap](./vuejs-developer-roadmap.md)
+- [React Developer Roadmap](./roadmaps/react-developer-roadmap.md)
+- [Angular Developer Roadmap](./roadmaps/angular-developer-roadmap.md)
+- [VueJS Developer Roadmap](./roadmaps/vuejs-developer-roadmap.md)
 
 JavaScript Back-end Developer
 
@@ -63,7 +63,7 @@ Make sure you know:
     - Npm/yarn
     - Git
 
-### Improve
+### Good to know
 
 - Improve JavaScript
     - [FrontEndMasters: Functional-Light JavaScript](https://frontendmasters.com/courses/functional-javascript-v2/)
@@ -75,7 +75,7 @@ Make sure you know:
 - Improve GIT
     + [Git CheatSheet](http://ndpsoftware.com/git-cheatsheet.html)
 
-### Elective Coursework
+### Possibilities
 
 - WebPack
 - RollUp

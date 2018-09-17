@@ -1,0 +1,96 @@
+<h1>Product Detail</h1>
+
+<form (ngSubmit)="onSubmit(productForm)"
+      [formGroup]="productForm">
+  <div class="row">
+    <div class="col-md-6">
+      <div class="form-group">
+        <label for="sku">Sku</label>
+        <input type="text"
+               class="form-control"
+               formControlName="sku"
+               id="sku">
+      </div>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-md-6">
+      <div class="form-group"
+           [ngClass]="fieldGroupClass('title')">
+        <label for="title">Title *</label>
+        <input type="text"
+               class="form-control"
+               formControlName="title"
+               id="title">
+        <div class="help-block"
+             *ngIf="showError('title', 'required')">
+          This field is required
+        </div>
+        <div class="help-block"
+             *ngIf="showError('title', 'minlength')">
+          This field must be longer the 3 characters
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-md-6">
+      <div class="form-group"
+           [ngClass]="fieldGroupClass('price')">
+        <label for="title">Price *</label>
+        <input type="text"
+               class="form-control"
+               formControlName="price"
+               id="price">
+        <div class="help-block"
+             *ngIf="showError('price', 'required')">
+          This field is required
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class=" row ">
+    <div class="col-md-6">
+      <div class="form-group">
+        <label for="title">Base Price</label>
+        <input type="text"
+               class="form-control"
+               formControlName="basePrice"
+               id="basePrice">
+      </div>
+    </div>
+  </div>
+
+  <div class=" row ">
+    <div class="col-md-6">
+      <div class="form-group">
+        <label for="desc">Description</label>
+        <textarea class="form-control"
+                  formControlName="desc"
+                  id="desc"></textarea>
+      </div>
+    </div>
+  </div>
+
+  <div class=" row ">
+    <div class="col-md-6">
+      <div class="form-group">
+        <label>
+          <input type="checkbox" formControlName="stocked" id="stocked"> Stocked
+          </label>
+      </div>
+    </div>
+  </div>
+
+  <button type="button"
+          class="btn btn-default"
+          (click)="onCancel()">Cancel</button>
+  <button type="submit"
+          class="btn btn-success">Save</button>
+  <button *ngIf="!product.isNew()"
+          class="btn btn-danger pull-right"
+          (click)="onDelete($event)">Delete</button>
+</form>

@@ -9,7 +9,7 @@
 - [Official Guide](https://angular.io/)
 - [Awesome Angular](https://github.com/gdi2290/awesome-angular#official-resources)
 
-### Basic
+### Personal Must Know
 
 - Learn TypeScript
     - [TypeScript Fundamentals (FrontendMasters)](https://frontendmasters.com/courses/typescript/)
@@ -25,7 +25,7 @@
 
 - [@angular/cli - CLI tool for Angular](https://github.com/angular/angular-cli)
 
-### Improve
+### Good To Know
 
 - Improve JavaScript/Typescript
     - [Functional-Light JavaScript (FrontEndMasters)](https://frontendmasters.com/courses/functional-javascript-v2/)

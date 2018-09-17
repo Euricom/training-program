@@ -9,16 +9,16 @@
 - [Official Guide](https://reactjs.org/)
 - [Awesome React](https://github.com/enaqx/awesome-react)
 
-### Basic
-
-- [JavaScript - From Fundamentals to Functional JS (FrontEndMasters)](https://frontendmasters.com/courses/js-fundamentals-functional-v2/)
-- [Complete Intro to React (FrontEndMasters)](https://frontendmasters.com/courses/react/)
-
 ### Starter
 
 - [create-react-app - CLI to create React apps with no build configuration ](https://github.com/facebook/create-react-app)
 
-### Improve
+### Must Know
+
+- [JavaScript - From Fundamentals to Functional JS (FrontEndMasters)](https://frontendmasters.com/courses/js-fundamentals-functional-v2/)
+- [Complete Intro to React (FrontEndMasters)](https://frontendmasters.com/courses/react/)
+
+### Good To Know
 
 - Improve React
     + [Advanced State Management in React (FrontEndMasters)](https://frontendmasters.com/courses/react-state/)
@@ -36,7 +36,7 @@
 - Learn GraphQL
     + [Full-stack GraphQL with Apollo](https://www.leveluptutorials.com/tutorials/full-stack-graphql-with-apollo-meteor-and-react)
 
-### Elective Coursework
+### Possibilities
 
 - StoryBook for React
 - NodeJS (Express)

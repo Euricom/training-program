@@ -2,6 +2,8 @@
 
 ## VueJS Developer Roadmap
 
+<img src="./vue-developer-roadmap.png" />
+
 ### Info
 
 - [Official Guide](http://vuejs.org/guide/)

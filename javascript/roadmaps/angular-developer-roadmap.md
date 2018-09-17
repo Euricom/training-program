@@ -2,7 +2,7 @@
 
 ## Angular Developer Roadmap
 
-THIS IS WORK IN PROGRESS
+<img src="./angular-developer-roadmap.png" />
 
 ### Info
 
@@ -16,8 +16,7 @@ THIS IS WORK IN PROGRESS
 
 - Learn RxJS
     - [RxJS Observables Crash Course (youtube)](https://www.youtube.com/watch?v=ei7FsoXKPl0)
-    - [Adding Even More Fun to Functional Programming With RXJS (youtube)](
-https://www.youtube.com/watch?v=8EExNfm0gt4)
+    - [Adding Even More Fun to Functional Programming With RXJS (youtube)](https://www.youtube.com/watch?v=8EExNfm0gt4)
 
 - Learn Angular
     - [Building Awesomer Apps with Angular (FrontEndMasters)](https://frontendmasters.com/courses/building-apps-angular/)
@@ -39,7 +38,7 @@ https://www.youtube.com/watch?v=8EExNfm0gt4)
 - Learn NgRx
     - [Build Redux Style Applications with Angular, RxJS, and ngrx/store (egghead.io)](https://egghead.io/courses/build-redux-style-applications-with-angular-rxjs-and-ngrx-store)
 
-### Elective Coursework
+### Possibilities
 
 - NodeJS (Express)
 - GraphQL

@@ -43,6 +43,8 @@
 - NodeJS (Express)
 - GraphQL
 - Electron
-- Top commercial training (not for Euricom)
-    - [Angular Ultimate Package](https://ultimateangular.com/)
+
+### Alternative training (commercial)
+
+- [Angular Ultimate Package](https://ultimateangular.com/)
 

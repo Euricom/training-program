@@ -45,7 +45,9 @@
 - Electron
 - Gatsby
     - [Build a Blog with React and Markdown using Gatsby](https://egghead.io/courses/build-a-blog-with-react-and-markdown-using-gatsby)
-- Top commercial trainings (not for Euricom)
-    - [The Complete React Web Developer Course (Udemy)](https://www.udemy.com/react-2nd-edition/?siteID=QZaBth_yPOQ-K6a2lVmepp2tq_4h5HunwQ&LSNPUBID=QZaBth%2FyPOQ)
-    - [React For Beginners (Wes Bos)](https://reactforbeginners.com/)
+
+### Alternative training (commercial)
+
+- [The Complete React Web Developer Course (Udemy)](https://www.udemy.com/react-2nd-edition/?siteID=QZaBth_yPOQ-K6a2lVmepp2tq_4h5HunwQ&LSNPUBID=QZaBth%2FyPOQ)
+- [React For Beginners (Wes Bos)](https://reactforbeginners.com/)
 

@@ -1,0 +1,66 @@
+{
+  "name": "js-react-webpack",
+  "version": "1.0.0",
+  "description": "React WebPack Template",
+  "scripts": {
+    "serve": "webpack-dev-server --open --inline --hot",
+    "build": "webpack",
+    "build:prod": "webpack -p",
+    "lint": "eslint \"src/**/*.{js,jsx}\"",
+    "format": "prettier --write 'src/**/*.{js,jsx,css}'",
+    "test:ci": "jest",
+    "test": "jest --watch --notify"
+  },
+  "author": "",
+  "license": "MIT",
+  "dependencies": {
+    "axios": "^0.18.0",
+    "bootstrap": "3",
+    "immer": "^1.3.1",
+    "intl": "^1.2.5",
+    "mobx": "^5.0.3",
+    "mobx-logger": "^0.7.0",
+    "mobx-react": "^5.2.3",
+    "prop-types": "^15.6.2",
+    "pubsub-js": "^1.6.0",
+    "react": "^16.4.1",
+    "react-dom": "^16.4.1",
+    "react-toastify": "^4.1.0"
+  },
+  "devDependencies": {
+    "babel-core": "^6.26.3",
+    "babel-eslint": "^8.2.5",
+    "babel-jest": "^23.0.1",
+    "babel-loader": "^7.1.4",
+    "babel-plugin-transform-decorators-legacy": "^1.3.5",
+    "babel-preset-react": "^6.24.1",
+    "babel-preset-stage-2": "^6.24.1",
+    "cross-env": "^5.0.0",
+    "css-loader": "^0.28.11",
+    "eslint": "^4.19.1",
+    "eslint-config-airbnb": "^17.0.0",
+    "eslint-config-prettier": "^2.9.0",
+    "eslint-plugin-import": "^2.12.0",
+    "eslint-plugin-jsx-a11y": "^6.0.3",
+    "eslint-plugin-react": "^7.10.0",
+    "file-loader": "^1.1.11",
+    "friendly-errors-webpack-plugin": "^1.7.0",
+    "jasmine-expect": "^3.8.3",
+    "jest": "^23.1.0",
+    "jest-watch-typeahead": "^0.1.0",
+    "prettier": "^1.6.1",
+    "style-loader": "^0.21.0",
+    "svg-react-loader": "^0.4.5",
+    "webpack": "^4.10.0",
+    "webpack-cli": "^2.1.4",
+    "webpack-dev-server": "^3.1.4"
+  },
+  "jest": {
+    "verbose": false,
+    "setupTestFrameworkScriptFile": "<rootDir>/test/jest.setup.js",
+    "watchPlugins": [
+      "jest-watch-typeahead/filename",
+      "jest-watch-typeahead/testname"
+    ]
+  }
+}

@@ -37,3 +37,7 @@
 - GraphQL
 - Electron
 - VuePress
+
+### Alternative training (commercial)
+
+- None

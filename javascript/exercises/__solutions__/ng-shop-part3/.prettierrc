@@ -5,5 +5,5 @@
   "printWidth": 80,
   "useTabs": false,
   "semi": true,
-  "arrowParens": "always"
+  "arrowParens": "always",
 }

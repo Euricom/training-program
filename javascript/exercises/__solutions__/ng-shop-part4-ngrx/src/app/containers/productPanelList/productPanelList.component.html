@@ -1,0 +1,6 @@
+<h3>Panel View</h3>
+<div class="flex-grid">
+  <div class="col" *ngFor="let product of products$ | async">
+    <product [product]="product" (addProduct)="onAddProduct($event)"></product>
+  </div>
+</div>

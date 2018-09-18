@@ -1,0 +1,30 @@
+{
+  "compileOnSave": false,
+  "compilerOptions": {
+    "baseUrl": "./src",
+    "outDir": "./dist/out-tsc",
+    "sourceMap": true,
+    "declaration": false,
+    "moduleResolution": "node",
+    "noUnusedLocals": true,
+    "noUnusedParameters": true,
+    "emitDecoratorMetadata": true,
+    "experimentalDecorators": true,
+    "target": "es5",                   /* Specify ECMAScript target version: 'ES3' (default), 'ES5', 'ES2015', 'ES2016', 'ES2017', or 'ESNEXT'. */
+    "strict": true,                    /* Enable all strict type-checking options. */
+    "noImplicitAny": false,             /* Raise error on expressions and declarations with an implied 'any' type. */
+    "strictFunctionTypes": false,
+    "esModuleInterop": true,           /* Allow default imports from modules with no default export. */
+    "typeRoots": [
+      "node_modules/@types"
+    ],
+    "paths": {
+      "@app/*": ["app/*"],
+      "@env/*": ["environments/*"]
+    },
+    "lib": [
+      "es2018",
+      "dom"
+    ]
+  }
+}

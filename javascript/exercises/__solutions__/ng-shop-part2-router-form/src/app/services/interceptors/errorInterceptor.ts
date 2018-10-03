@@ -9,7 +9,12 @@ import {
 import { Observable, throwError } from 'rxjs';
 import { timeout, catchError } from 'rxjs/operators';
 
-import { CommunicationError, RequestError } from '../../errors';
+import {
+  CommunicationError,
+  RequestError,
+  TimeoutError,
+  NoConnectionError,
+} from '../../errors';
 
 @Injectable()
 export class ErrorInterceptor implements HttpInterceptor {
@@ -17,9 +22,8 @@ export class ErrorInterceptor implements HttpInterceptor {
     req: HttpRequest<any>,
     next: HttpHandler,
   ): Observable<HttpEvent<any>> {
-    console.log('ErrorInterceptor');
     return next.handle(req).pipe(
-      timeout(2000),
+      timeout(5_000),
       catchError((err) => castError(err)),
     );
   }
@@ -28,16 +32,16 @@ export class ErrorInterceptor implements HttpInterceptor {
 function castError(error: HttpErrorResponse | Error) {
   if (error instanceof Error) {
     if (error.name === 'TimeoutError') {
-      return throwError(new CommunicationError('Request Timeout'));
+      return throwError(new TimeoutError());
     }
     return throwError(
-      new CommunicationError('Failed to process server response'),
+      new CommunicationError('Failed to process server response', error),
     );
   }
   // HttpErrorResponse
   if (error.status === 0) {
     // A network error occurred (DNS, No Internet, ...)
-    return throwError(new CommunicationError('No connection'));
+    return throwError(new NoConnectionError());
   }
   // The backend returned an unsuccessful response code.
   return throwError(new RequestError(error.status, error.statusText, error));

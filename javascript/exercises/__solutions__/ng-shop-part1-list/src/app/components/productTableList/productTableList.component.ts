@@ -26,6 +26,7 @@ export class ProductTableListComponent implements OnInit {
         this.products = products;
       },
       (error) => {
+        console.log('ERROR', error);
         this.errorMessage = error.message;
       },
     );

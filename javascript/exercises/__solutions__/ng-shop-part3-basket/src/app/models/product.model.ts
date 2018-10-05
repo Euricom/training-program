@@ -20,8 +20,4 @@ export class Product {
   isNew() {
     return !this.id;
   }
-
-  updateBy(data: any) {
-    Object.assign(this, data);
-  }
 }

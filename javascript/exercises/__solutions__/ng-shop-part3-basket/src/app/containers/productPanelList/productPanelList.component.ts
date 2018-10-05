@@ -25,7 +25,7 @@ export class ProductPanelListComponent implements OnInit {
   }
 
   private getProducts(page = 0, sortExpression = '') {
-    this.productService.getProducts(0, sortExpression).subscribe(
+    this.productService.getProducts(page, sortExpression).subscribe(
       (products) => {
         this.products = products;
       },

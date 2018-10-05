@@ -21,8 +21,6 @@ describe('FilterPipe', () => {
   });
 
   test('empty array', () => {
-    const testArray = [];
-
     // act
     const result = pipe.transform([], 'name', 'abc');
 

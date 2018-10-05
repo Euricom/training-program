@@ -19,7 +19,6 @@ import { BasketComponent } from './containers/basket/basket.component';
 // services
 import { AuthInterceptor } from './services/interceptors/authInterceptor';
 import { ErrorInterceptor } from './services/interceptors/errorInterceptor';
-import { ProductResolve } from './resolvers/productResolve';
 
 // pipes
 import { YesNoPipe } from './pipes/yesNo.pipe';

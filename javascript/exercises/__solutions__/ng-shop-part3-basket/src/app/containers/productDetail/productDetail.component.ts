@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, OnInit, ViewEncapsulation } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Location } from '@angular/common';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
@@ -52,7 +52,7 @@ export class ProductDetailComponent implements OnInit {
       return;
     }
 
-    this.product.updateBy(this.productForm.value);
+    this.product = Object.assign(this.product, this.productForm.value);
     this.productService.save(this.product).subscribe(() => {
       this.location.back();
     });

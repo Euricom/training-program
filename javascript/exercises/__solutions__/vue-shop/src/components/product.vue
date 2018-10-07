@@ -32,7 +32,7 @@
             </tr>
           </tbody>
         </table>
-        <button class="btn btn-primary" @click="onAdd()" :disabled="!hasProductInStock">Add</button>
+        <button class="btn btn-primary margin" @click="onAdd()" :disabled="!hasProductInStock">Add</button>
         <input v-if="product.stocked" type=number value="1" style="width: 30px;" min="1" max="5" v-model="quantity">
         <span v-if="!product.stocked" style="color: red;">Out of Stock</span>
       </div>
@@ -65,4 +65,7 @@ export default {
 </script>
 
 <style scoped>
+.margin {
+  margin: 5px;
+}
 </style>

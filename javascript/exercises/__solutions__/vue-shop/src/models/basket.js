@@ -13,6 +13,10 @@ export class Basket {
     }
   }
 
+  clear() {
+    this.items = [];
+  }
+
   addProduct(product, quantity) {
     let item = this.items.find(x => x.id === product.id);
     if (!item) {

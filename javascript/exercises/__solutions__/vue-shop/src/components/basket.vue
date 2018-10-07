@@ -22,6 +22,7 @@
         </tbody>
       </table>
         <h4>Total: {{basket.totalPrice | currency}}</h4>
+        <button class="btn btn-default" @click="onClick()">Clear Basket</button>
     </div>
   </div>
 </template>
@@ -56,7 +57,16 @@ export default {
         products.forEach(product => {
           this.basket.updateProductInfo(product);
         });
+      })
+      .catch(error => {
+        console.error('failed to get products for basket', error);
+        this.basket.clear();
       });
+  },
+  methods: {
+    onClick() {
+      this.basket.clear();
+    },
   },
 };
 </script>

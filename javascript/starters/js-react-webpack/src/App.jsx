@@ -1,24 +1,25 @@
-import React from 'react';
+import React, { Component } from 'react';
+import { hot } from 'react-hot-loader';
 
-import MyComponent from './components/MyComponent';
+import Logo from './logo.svg';
+import './App.css';
 
-// eslint-disable-next-line
-export default class App extends React.Component {
-  name = 'test';
-
-  title = 'MyComponentTitle';
-
-  customers = [
-    { id: 1, name: 'consonto' },
-    { id: 2, name: 'bellware' },
-    { id: 3, name: 'sultana' },
-  ];
-
+class App extends Component {
   render() {
     return (
-      <div>
-        <MyComponent title={this.title} data={this.customers} />
+      <div className="App">
+        <header className="App-header">
+          <Logo className="App-logo" />
+          <h1 className="App-title">Welcome to React</h1>
+        </header>
+        <p className="App-intro">
+          To get started, edit <code>src/App.js</code> and save to reload.
+        </p>
       </div>
     );
   }
 }
+
+// hot export to enable hot reloading of react components
+// export default App;
+export default hot(module)(App);

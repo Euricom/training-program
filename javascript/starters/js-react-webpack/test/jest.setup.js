@@ -1,6 +1,4 @@
-import "jasmine-expect"
-
-import IntlPolyfill from "intl"
+import IntlPolyfill from 'intl';
 
 // Jest and node only support English locale
 // Therefore we add the polyfill for unit testing
@@ -36,15 +34,13 @@ Object.defineProperty(base, 'length', {
   },
 });
 
-const mock = () => {
-  return Object.create(base);
-};
+const mock = () => Object.create(base);
 
 Object.defineProperty(window, 'localStorage', {
-  value: mock()
+  value: mock(),
 });
 Object.defineProperty(window, 'sessionStorage', {
-  value: mock()
+  value: mock(),
 });
 
 // limit stacktrace for simpler error dumps

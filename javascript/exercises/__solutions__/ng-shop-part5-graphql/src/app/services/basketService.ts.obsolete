@@ -1,0 +1,42 @@
+import { Injectable } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
+import { Observable } from 'rxjs';
+import { environment } from '@env/environment';
+
+import { IProductDTO } from './productService';
+
+export interface IBasketItem {
+  id: number;
+  quantity: number;
+}
+export interface IBasketDTO extends Array<IBasketItem> {}
+
+const basketKey = 'abc';
+
+@Injectable({
+  providedIn: 'root',
+})
+export class BasketService {
+  constructor(private httpClient: HttpClient) {}
+
+  getBasket(): Observable<IBasketDTO> {
+    return this.httpClient.get<IBasketDTO>(
+      `${environment.apiBase}/api/basket/${basketKey}`,
+    );
+  }
+
+  addProduct(product: IProductDTO, quantity: number) {
+    return this.httpClient.post<IBasketDTO>(
+      `${environment.apiBase}/api/basket/${basketKey}/product/${product.id}`,
+      {
+        quantity,
+      },
+    );
+  }
+
+  clear() {
+    return this.httpClient.delete<IBasketDTO>(
+      `${environment.apiBase}/api/basket/${basketKey}`,
+    );
+  }
+}

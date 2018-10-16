@@ -1,0 +1,25 @@
+<h3>Basket</h3>
+<div>
+<!-- <span *ngIf="basket.items.length === 0">No Product in Basket</span>
+<div *ngIf="basket.items.length > 0">
+  <table class="table">
+    <thead>
+      <tr>
+        <th>Title</th>
+        <th>Price</th>
+        <th>Quantity</th>
+        <th>Total</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let item of basket.items">
+        <td>{{item.title}}</td>
+        <td>{{item.price | currency:'EUR':'symbol'}}</td>
+        <td>{{item.quantity}}</td>
+        <td>{{item.total | currency:'EUR':'symbol'}}</td>
+      </tr>
+    </tbody>
+  </table>
+  <h4>Total: {{basket.totalPrice | currency:'EUR':'symbol' }}</h4> -->
+  <button class="btn btn-danger" (click)="onClear()">Clear</button>
+</div>

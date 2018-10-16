@@ -1,5 +1,9 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
-// import { Subscription, forkJoin } from 'rxjs';
+import { Observable } from 'rxjs';
+
+import { QueryBasket } from '@app/graphql';
+import { Basket } from 'graphql-types';
+// import { subscribe } from 'graphql';
 
 // import { ProductService } from '@app/services/productService';
 // import { BasketService } from '@app/services/basketService';
@@ -8,16 +12,19 @@ import { Component, OnDestroy, OnInit } from '@angular/core';
 // import { ServiceBus } from '@app/serviceBus';
 
 @Component({
-  selector: 'basket',
-  templateUrl: './basket.component.html',
+  selector: 'basket-container',
+  templateUrl: './basket.container.html',
 })
-export class BasketComponent implements OnInit, OnDestroy {
-  // basket: Basket = new Basket();
-  // sub?: Subscription;
+export class BasketContainerComponent implements OnInit, OnDestroy {
+  basket$: Observable<Basket>;
 
-  constructor() {}
+  constructor(private queryBasket: QueryBasket) {}
 
   ngOnInit() {
+    this.basket$ = this.queryBasket.execute();
+    // this.basket$.subscribe((result) => {
+    //   console.log(result);
+    // });
     // subscribe to product changes
     // this.sub = this.serviceBus.listenForAll().subscribe((event: any) => {
     //   if (event.type === 'addProductToBasket') {

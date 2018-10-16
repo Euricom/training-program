@@ -3,7 +3,7 @@
   {{this.errorMessage}}
 </div>
 <div class="flex-grid">
-  <div class="col" *ngFor="let product of products">
-    <product [product]="product" (addProduct)="onAddProduct($event)"></product>
+  <div class="col" *ngFor="let item of (productConnection$ | async).edges">
+    <product [product]="item.node" (addProduct)="onAddProduct($event)"></product>
   </div>
 </div>

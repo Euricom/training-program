@@ -4,6 +4,7 @@ export const productFragment = gql`
   fragment productFields on Product {
     id
     sku
+    image
     title
     price
     basePrice
@@ -12,12 +13,13 @@ export const productFragment = gql`
 `;
 
 export const basketFragment = gql`
-  fragment basketFields on Product {
+  fragment basketFields on Basket {
+    checkoutID
     items {
       product {
         ...productFields
       }
-      qantity
+      quantity
     }
   }
   ${productFragment}

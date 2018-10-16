@@ -15,12 +15,13 @@ import { AppRoutingModule } from './app.routes';
 // components
 import { AppComponent } from './app.component';
 import { ProductComponent } from './components/product/product.component';
+import { BasketComponent } from './containers/basket/components/basket.component';
 
 // containers
 import { ProductTableListComponent } from './containers/productTableList/productTableList.component';
 import { ProductPanelListComponent } from './containers/productPanelList/productPanelList.component';
 import { ProductDetailComponent } from './containers/productDetail/productDetail.component';
-import { BasketComponent } from './containers/basket/basket.component';
+import { BasketContainerComponent } from './containers/basket/basket.container';
 
 // pipes
 import { YesNoPipe } from './pipes/yesNo.pipe';
@@ -36,12 +37,14 @@ import { YesNoPipe } from './pipes/yesNo.pipe';
     HttpLinkModule,
   ],
   declarations: [
-    // components
+    // containers
     AppComponent,
     ProductTableListComponent,
     ProductPanelListComponent,
     ProductDetailComponent,
     ProductComponent,
+    BasketContainerComponent,
+    // components
     BasketComponent,
     // pipes
     YesNoPipe,

@@ -2,21 +2,14 @@ import { Component, OnDestroy, OnInit } from '@angular/core';
 import { Observable } from 'rxjs';
 
 import { QueryBasket } from '@app/graphql';
-import { Basket } from 'graphql-types';
-// import { subscribe } from 'graphql';
-
-// import { ProductService } from '@app/services/productService';
-// import { BasketService } from '@app/services/basketService';
-// import { Product } from '@app/models/product.model';
-// import { Basket } from '@app/models/basket.model';
-// import { ServiceBus } from '@app/serviceBus';
+import { IBasket } from '@app/graphql/resolvers';
 
 @Component({
   selector: 'basket-container',
   templateUrl: './basket.container.html',
 })
 export class BasketContainerComponent implements OnInit, OnDestroy {
-  basket$: Observable<Basket>;
+  basket$: Observable<IBasket>;
 
   constructor(private queryBasket: QueryBasket) {}
 
@@ -34,22 +27,6 @@ export class BasketContainerComponent implements OnInit, OnDestroy {
     //     this.basket.updateProductInfo(event.data);
     //   }
     // });
-    // // get basket from server
-    // this.basketService.getBasket().subscribe((basket) => {
-    //   // for each product in basket, get product info
-    //   const productSources: any = [];
-    //   basket.items.forEach((item) => {
-    //     productSources.push(this.productService.getProduct(item.id));
-    //   });
-    //   // wait for product info
-    //   forkJoin<Product>(productSources).subscribe((products) => {
-    //     // update all items in the basket
-    //     products.forEach((product) => {
-    //       basket.updateProductInfo(product);
-    //     });
-    //     this.basket = basket;
-    //   });
-    // });
   }
 
   onClear() {
@@ -58,9 +35,5 @@ export class BasketContainerComponent implements OnInit, OnDestroy {
     // });
   }
 
-  ngOnDestroy(): void {
-    // if (this.sub) {
-    //   this.sub.unsubscribe();
-    // }
-  }
+  ngOnDestroy(): void {}
 }

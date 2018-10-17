@@ -1,5 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { Basket } from 'graphql-types';
+import { IBasket } from '@app/graphql/resolvers';
 
 const EMPTY_BASKET = { items: [] };
 
@@ -8,13 +8,13 @@ const EMPTY_BASKET = { items: [] };
   templateUrl: './basket.component.html',
 })
 export class BasketComponent implements OnInit {
-  _basket: Basket = EMPTY_BASKET;
+  _basket: IBasket = EMPTY_BASKET;
 
   @Input('basket')
-  set basket(value: Basket) {
+  set basket(value: IBasket) {
     this._basket = value || EMPTY_BASKET;
   }
-  get basket(): Basket {
+  get basket(): IBasket {
     return this._basket;
   }
 

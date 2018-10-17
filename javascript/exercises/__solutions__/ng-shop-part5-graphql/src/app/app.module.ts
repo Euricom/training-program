@@ -6,8 +6,12 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { ApolloModule, APOLLO_OPTIONS } from 'apollo-angular';
 import { HttpLinkModule, HttpLink } from 'apollo-angular-link-http';
 import { InMemoryCache } from 'apollo-cache-inmemory';
+import { withClientState } from 'apollo-link-state';
 
 import { environment } from '@env/environment';
+
+// graphql
+import { defaults, resolvers } from './graphql/resolvers';
 
 // routing
 import { AppRoutingModule } from './app.routes';
@@ -52,13 +56,15 @@ import { YesNoPipe } from './pipes/yesNo.pipe';
   providers: [
     {
       provide: APOLLO_OPTIONS,
-      useFactory(httplink: HttpLink) {
-        return {
-          cache: new InMemoryCache(),
-          link: httplink.create({
-            uri: environment.graphQlUrl,
-          }),
-        };
+      useFactory(httpLink: HttpLink) {
+        const cache = new InMemoryCache();
+        const http = httpLink.create({ uri: environment.graphQlUrl });
+        const local = withClientState({
+          cache,
+          defaults,
+          resolvers,
+        });
+        return { cache, link: local.concat(http) };
       },
       deps: [HttpLink],
     },

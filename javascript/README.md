@@ -84,3 +84,7 @@ Make sure you know:
 - Top commertial trainings
     - [ES6 for Everyone (Wes Bos)](https://es6.io/)
 
+### Other resources
+
+- [33 Concepts Every JavaScript Developer Should Know ](https://github.com/leonardomso/33-js-concepts)
+

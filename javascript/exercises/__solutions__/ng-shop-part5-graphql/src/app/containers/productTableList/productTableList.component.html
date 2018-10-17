@@ -14,14 +14,14 @@
       </tr>
     </thead>
     <tbody>
-      <tr *ngFor="let item of (productConnection$ | async).edges">
-        <td>{{item.node.id}}</td>
-        <td>{{item.node.sku}}</td>
-        <td><a [routerLink]="['/detail', item.node.id]">{{item.node.title}}</a></td>
-        <td>{{item.node.price}}</td>
-        <td>{{item.node.basePrice}}</td>
-        <td>{{item.node.stocked | yesNo}}</td>
-        <td><a (click)="onDelete(item.node)">Delete</a></td>
+      <tr *ngFor="let edge of (productConnection$ | async).edges">
+        <td>{{edge.node.id}}</td>
+        <td>{{edge.node.sku}}</td>
+        <td><a [routerLink]="['/detail', edge.node.id]">{{edge.node.title}}</a></td>
+        <td>{{edge.node.price}}</td>
+        <td>{{edge.node.basePrice}}</td>
+        <td>{{edge.node.stocked | yesNo}}</td>
+        <td><a (click)="onDelete(edge.node)">Delete</a></td>
       </tr>
     </tbody>
   </table>

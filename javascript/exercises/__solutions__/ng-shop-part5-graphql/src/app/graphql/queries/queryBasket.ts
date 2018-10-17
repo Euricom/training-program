@@ -6,7 +6,8 @@ import { map } from 'rxjs/operators';
 import gql from 'graphql-tag';
 
 import { basketFragment } from '../fragments';
-import { Basket, Query as QueryRoot } from 'graphql-types';
+import { Query as QueryRoot } from 'graphql-types';
+import { IBasket } from '../resolvers';
 
 @Injectable({
   providedIn: 'root',
@@ -16,17 +17,18 @@ export class QueryBasket extends Query<QueryRoot> {
     query basket($checkoutID: String!) {
       basket(checkoutID: $checkoutID) {
         ...basketFields
+        total @client
       }
     }
     ${basketFragment}
   `;
 
-  public execute(): Observable<Basket> {
+  public execute(): Observable<IBasket> {
     return this.watch({
       checkoutID: 'abc',
     }).valueChanges.pipe(
       map((result) => {
-        return result.data.basket;
+        return result.data.basket as IBasket;
       }),
     );
   }

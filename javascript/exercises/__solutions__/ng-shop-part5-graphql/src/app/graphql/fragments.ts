@@ -20,6 +20,7 @@ export const basketFragment = gql`
         ...productFields
       }
       quantity
+      total @client
     }
   }
   ${productFragment}

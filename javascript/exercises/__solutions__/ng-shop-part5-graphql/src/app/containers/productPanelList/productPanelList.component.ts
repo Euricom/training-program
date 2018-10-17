@@ -2,8 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { QueryAllProducts } from '@app/graphql';
 import { Observable } from 'rxjs';
 import { ProductConnection } from 'graphql-types';
-
-// import { ServiceBus } from '@app/serviceBus';
+import { MutationAddItemToBasket } from '@app/graphql';
 
 @Component({
   selector: 'product-panel-list',
@@ -11,11 +10,13 @@ import { ProductConnection } from 'graphql-types';
   styleUrls: ['./productPanelList.component.css'],
 })
 export class ProductPanelListComponent implements OnInit {
-  // products: Product[] = [];
   errorMessage = '';
   productConnection$!: Observable<ProductConnection>;
 
-  constructor(private queryAllProducts: QueryAllProducts) {
+  constructor(
+    private queryAllProducts: QueryAllProducts,
+    private mutationAddItemToBasket: MutationAddItemToBasket,
+  ) {
     this.productConnection$ = this.queryAllProducts.execute();
   }
 
@@ -23,11 +24,8 @@ export class ProductPanelListComponent implements OnInit {
 
   onAddProduct(event: any) {
     console.log('onAddProduct', event);
-    // this.basketService
-    //   .addProduct(event.product, event.quantity)
-    //   .subscribe((result) => {
-    //     console.log(result);
-    //     this.serviceBus.publish('addProductToBasket', event);
-    //   });
+    this.mutationAddItemToBasket
+      .execute(event.quantity, event.product.id)
+      .subscribe();
   }
 }

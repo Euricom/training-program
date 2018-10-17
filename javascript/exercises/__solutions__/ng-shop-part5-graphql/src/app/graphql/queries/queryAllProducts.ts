@@ -17,7 +17,7 @@ const emptyConnection = {
 })
 export class QueryAllProducts extends Query<QueryRoot> {
   document = gql`
-    query allProducts($orderBy: String) {
+    query getAllProducts($orderBy: String) {
       allProducts(orderBy: $orderBy) {
         edges {
           node {

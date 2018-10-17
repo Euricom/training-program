@@ -22,40 +22,35 @@ export class MutationDeleteProduct extends Mutation<DeleteProductPayload> {
     ${productFragment}
   `;
 
-  public execute(
-    productId: string,
-    refetchQueries: string[],
-  ): Observable<Product> {
+  public execute(productId: string): Observable<Product> {
     return this.mutate(
       { productId: productId },
-      {
-        refetchQueries,
-        // updateQueries: {
-        //   allProducts: (prev, { mutationResult }): any => {
-        //     console.log('updateQueries', prev.allProducts, mutationResult);
-        //   },
-        // },
-        // update: (cache, { data: { deleteProduct } }) => {
-        //   console.log('update after delete', deleteProduct, cache);
-
-        //   const query = gql`
-        //     query GetAllProducts {
-        //       allProducts(orderBy: "") @client {
-        //         edges {
-        //           node {
-        //             id
-        //             title
-        //           }
-        //         }
-        //       }
-        //     }
-        //   `;
-        //   const previous = cache.readQuery({
-        //     query,
-        //   });
-        //   console.log('update query', previous);
-        // },
-      },
+      { refetchQueries: ['getAllProducts', 'getBasket'] },
     ).pipe(map((result) => result.data.deleteProduct.product));
+    // updateQueries: {
+    //   allProducts: (prev, { mutationResult }): any => {
+    //     console.log('updateQueries', prev.allProducts, mutationResult);
+    //   },
+    // },
+    // update: (cache, { data: { deleteProduct } }) => {
+    //   console.log('update after delete', deleteProduct, cache);
+
+    //   const query = gql`
+    //     query GetAllProducts {
+    //       allProducts(orderBy: "") @client {
+    //         edges {
+    //           node {
+    //             id
+    //             title
+    //           }
+    //         }
+    //       }
+    //     }
+    //   `;
+    //   const previous = cache.readQuery({
+    //     query,
+    //   });
+    //   console.log('update query', previous);
+    // },
   }
 }

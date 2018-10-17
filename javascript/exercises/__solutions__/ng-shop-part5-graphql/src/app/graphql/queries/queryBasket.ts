@@ -14,7 +14,7 @@ import { IBasket } from '../resolvers';
 })
 export class QueryBasket extends Query<QueryRoot> {
   document = gql`
-    query basket($checkoutID: String!) {
+    query getBasket($checkoutID: String!) {
       basket(checkoutID: $checkoutID) {
         ...basketFields
         total @client

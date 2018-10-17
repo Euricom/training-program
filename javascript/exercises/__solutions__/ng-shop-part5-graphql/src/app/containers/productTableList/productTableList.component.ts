@@ -54,10 +54,10 @@ export class ProductTableListComponent implements OnInit {
     //   .mutate(
     //     // variables
     //     { productId: product.id }, // options
-    //     { refetchQueries: ['allProducts'] },
+    //     { refetchQueries: ['allProducts', 'getBasket'] },
     //   )
     //   .subscribe();
-    this.mutationDeleteProduct.execute(product.id, ['allProducts']).subscribe();
+    this.mutationDeleteProduct.execute(product.id).subscribe();
   }
 
   selectedClass(fieldName: string) {

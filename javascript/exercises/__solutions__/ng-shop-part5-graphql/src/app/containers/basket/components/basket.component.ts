@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input, Output, OnInit, EventEmitter } from '@angular/core';
 import { IBasket } from '@app/graphql/resolvers';
 
 const EMPTY_BASKET = { items: [] };
@@ -10,6 +10,7 @@ const EMPTY_BASKET = { items: [] };
 export class BasketComponent implements OnInit {
   _basket: IBasket = EMPTY_BASKET;
 
+  @Output() clear = new EventEmitter();
   @Input('basket')
   set basket(value: IBasket) {
     this._basket = value || EMPTY_BASKET;
@@ -22,5 +23,7 @@ export class BasketComponent implements OnInit {
 
   ngOnInit() {}
 
-  onClear() {}
+  onClear() {
+    this.clear.emit();
+  }
 }

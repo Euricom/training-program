@@ -12,8 +12,25 @@ export class RequestError extends Error {
   }
 }
 
+export class TimeoutError extends Error {
+  constructor(message: string = 'Request timeout', public details = null) {
+    super(message);
+    this.name = TimeoutError.name;
+  }
+}
+
+export class NoConnectionError extends Error {
+  constructor(
+    message: string = 'No internet connection',
+    public details = null,
+  ) {
+    super(message);
+    this.name = NoConnectionError.name;
+  }
+}
+
 export class CommunicationError extends Error {
-  constructor(message: string, public details = null) {
+  constructor(message: string, public details: any = null) {
     super(message);
     this.name = CommunicationError.name;
   }

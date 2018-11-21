@@ -2,8 +2,6 @@ import { Router } from '@angular/router';
 import { Component, OnInit } from '@angular/core';
 
 import { ShopFacade } from '@app/shop.facade';
-// import { ProductService } from '@app/services/productService';
-import { Product } from '@app/models/product.model';
 
 @Component({
   selector: 'product-table-list',

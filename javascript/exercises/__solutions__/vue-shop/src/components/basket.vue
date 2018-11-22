@@ -21,8 +21,8 @@
           </tr>
         </tbody>
       </table>
-        <h4>Total: {{basket.totalPrice | currency}}</h4>
-        <button class="btn btn-default" @click="onClick()">Clear Basket</button>
+      <h4>Total: {{basket.totalPrice | currency}}</h4>
+      <button class="btn btn-default" @click="onClick()">Clear Basket</button>
     </div>
   </div>
 </template>
@@ -48,6 +48,7 @@ export default {
       .then(basket => {
         const promises = [];
         this.basket = basket;
+        console.log(basket);
         this.basket.items.forEach(item => {
           promises.push(productService.getById(item.id));
         });

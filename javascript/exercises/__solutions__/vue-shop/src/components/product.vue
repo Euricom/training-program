@@ -22,13 +22,13 @@
               <td>
                 <strong>Price:</strong>
               </td>
-              <td>{{product.price}}</td>
+              <td>{{product.price | currency}}</td>
             </tr>
             <tr>
               <td>
                 <strong>Base Price:</strong>
               </td>
-              <td>{{product.basePrice}}</td>
+              <td>{{product.basePrice | currency}}</td>
             </tr>
           </tbody>
         </table>

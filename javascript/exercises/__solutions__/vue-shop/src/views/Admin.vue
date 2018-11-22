@@ -1,12 +1,19 @@
 <template>
   <div class="admin">
-    <h1>This is the admin page</h1>
+    <h1>Webshop Admin Page</h1>
+    <div class="row">
+      <products-table></products-table>
+    </div>
   </div>
 </template>
 
 <script>
+import ProductsTable from '@/components/productsTable.vue';
+
 export default {
   name: 'admin',
-  components: {},
+  components: {
+    ProductsTable,
+  },
 };
 </script>

@@ -4,13 +4,15 @@
     <button class="btn btn-default" @click="onAdd()">Add Product</button>
     <table class="table table-hover">
       <thead>
-        <th>Id</th>
-        <th>Sku</th>
-        <th>Title</th>
-        <th>Price</th>
-        <th>BasePrice</th>
-        <th>Stocked</th>
-        <th></th>
+        <tr>
+          <th :class="selectedClass('id')" @click="onSort('id')">Id</th>
+          <th :class="selectedClass('sku')" @click="onSort('sku')">Sku</th>
+          <th :class="selectedClass('title')" @click="onSort('title')">Title</th>
+          <th :class="selectedClass('price')" @click="onSort('price')">Price</th>
+          <th :class="selectedClass('basePrice')" @click="onSort('basePrice')">Base Price</th>
+          <th :class="selectedClass('stocked')" @click="onSort('stocked')">Stocked</th>
+          <th></th>
+        </tr>
       </thead>
       <tbody>
         <tr v-for="product in products" :key="product.id">
@@ -38,6 +40,8 @@ export default {
   data() {
     return {
       products: [],
+      sortBy: null,
+      sortAsc: false,
     };
   },
   methods: {
@@ -49,10 +53,50 @@ export default {
     onAdd() {
       this.$router.push('/product');
     },
+    async onSort(fieldName) {
+      if (fieldName === this.sortBy) {
+        this.sortAsc = !this.sortAsc;
+      } else {
+        this.sortAsc = true;
+        this.sortBy = fieldName;
+      }
+      const sortExpression = `${this.sortAsc ? '' : '-'}${fieldName}`;
+      console.log(sortExpression);
+      this.products = await productService.getAll(0, sortExpression);
+    },
+    selectedClass(fieldName) {
+      return fieldName === this.sortBy ? `sort-${this.sortAsc}` : false;
+    },
   },
   async mounted() {
     this.products = await productService.getAll();
-    console.log('products', this.products);
   },
 };
 </script>
+<style>
+table > thead > tr > th {
+  cursor: pointer;
+  position: relative;
+  background-image: none;
+}
+
+table > thead > tr > th:after,
+table > thead > tr > th.sort-false:after,
+table > thead > tr > th.sort-true:after {
+  font-family: FontAwesome;
+  padding-left: 5px;
+}
+
+table > thead > tr > th:after {
+  content: '\f0dc';
+  color: #ddd;
+}
+table > thead > tr > th.sort-false:after {
+  content: '\f0de';
+  color: #767676;
+}
+table > thead > tr > th.sort-true:after {
+  content: '\f0dd';
+  color: #767676;
+}
+</style>

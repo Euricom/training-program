@@ -2,7 +2,6 @@ import Vue from 'vue';
 import Vuelidate from 'vuelidate';
 import App from './App.vue';
 import router from './router';
-import store from './store';
 
 // filters
 import './filters';
@@ -28,6 +27,5 @@ export const eventBus = new Vue();
 /* The main application */
 export const app = new Vue({
   router,
-  store,
   render: h => h(App),
 }).$mount('#app');

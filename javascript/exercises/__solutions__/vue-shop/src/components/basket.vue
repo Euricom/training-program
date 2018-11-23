@@ -42,6 +42,7 @@ export default {
   mounted() {
     eventBus.$on('addToBasket', event => {
       this.basket.addProduct(event.product, event.quantity);
+      basketService.create(event.product.id, event.quantity);
     });
     basketService
       .get()
@@ -67,6 +68,7 @@ export default {
   methods: {
     onClick() {
       this.basket.clear();
+      basketService.delete();
     },
   },
 };

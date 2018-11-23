@@ -72,6 +72,7 @@
 <script>
 import { required, minLength } from 'vuelidate/lib/validators';
 import productService from '@/services/productService';
+import { Product } from '@/models/product';
 
 export default {
   name: 'productDetail',
@@ -86,7 +87,7 @@ export default {
         desc: '',
         stocked: false,
       },
-      product: {},
+      product: new Product({}),
       id: null,
     };
   },
@@ -107,7 +108,6 @@ export default {
       this.product = await productService.getById(this.id);
       console.log('product', this.product);
       Object.assign(this.form, this.product);
-      console.log('form', this.form);
     }
   },
   methods: {
@@ -117,7 +117,11 @@ export default {
     onSubmit() {
       this.$v.form.$touch();
       if (!this.$v.$invalid) {
-        Object.assign(this.product, this.$v.form.$model);
+        const newProduct = new Product(this.$v.form.$model);
+        console.log(newProduct);
+        Object.assign(this.product, newProduct);
+        console.log(this.product);
+
         productService.save(this.product).then(this.$router.push('/admin'));
       }
     },

@@ -1,4 +1,4 @@
-import axios from 'axios';
+import axios, { AxiosRequestConfig } from 'axios';
 import { Product } from '@/shared/models/product';
 
 export interface IProductDTO {
@@ -22,8 +22,14 @@ export interface IProductsDTO {
 const baseUrl = 'https://euri-test-api.now.sh/api/products';
 
 export class ProductService {
-  async getAll() {
-    const res = await axios.get<IProductsDTO>(baseUrl);
+  async getAll(page = 0, sortExpression = '') {
+    const config: AxiosRequestConfig = {
+      params: {
+        page: page.toString(),
+        sort: sortExpression,
+      },
+    };
+    const res = await axios.get<IProductsDTO>(baseUrl, config);
     const dtoArray = res.data.selectedProducts;
     return dtoArray.map(dto => new Product(dto));
   }
@@ -48,6 +54,11 @@ export class ProductService {
       return this.create(product);
     }
     return this.update(product);
+  }
+
+  async delete(id) {
+    const res = await axios.delete(`https://euri-test-api.now.sh/api/products/${id}`);
+    return new Product(res.data);
   }
 }
 

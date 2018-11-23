@@ -91,7 +91,6 @@
               class="btn btn-danger pull-right"
               @click="onDelete($event)">Delete</button>
     </form>
-    <pre>{{$v | json}}</pre>
   </div>
 </template>
 
@@ -100,7 +99,7 @@ import { Component, Vue } from 'vue-property-decorator';
 import { required, minLength } from 'vuelidate/lib/validators';
 
 import { Product } from '@/shared/models/product';
-import productService from '@/shared/services/productService';
+import productService, { IProductDTO } from '@/shared/services/productService';
 
 @Component({
   components: {},
@@ -126,9 +125,11 @@ export default class ProductDetail extends Vue {
     desc: '',
     stocked: false,
   };
+  id: number;
 
   async mounted() {
     if (this.$route.params.id) {
+      this.id = Number(this.$route.params.id);
       this.product = await productService.getById(this.$route.params.id);
       Object.assign(this.form, this.product);
     }
@@ -149,16 +150,24 @@ export default class ProductDetail extends Vue {
   }
 
   onCancel() {
-    console.log('onCancel');
+    this.$router.push('/admin');
   }
-  onDelete() {
-    console.log('onDelete');
+  async onDelete() {
+    await productService.delete(this.id);
+    return this.$router.push('/admin');
   }
-  onSubmit() {
+  async onSubmit() {
     this.$v.form.$touch();
-    if (this.$v.$invalid) return;
-    Object.assign(this.product, this.$v.form.$model);
-    console.log('onSubmit', this.$v.form.$model);
+    if (!this.$v.$invalid) {
+      const formModel: any = { ...this.$v.form.$model };
+      const newProduct = new Product(formModel);
+      console.log(newProduct);
+      Object.assign(this.product, newProduct);
+      console.log(this.product);
+
+      await productService.save(this.product);
+      return this.$router.push('/admin');
+    }
   }
 }
 </script>

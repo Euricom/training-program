@@ -4,6 +4,9 @@ import Vuelidate from 'vuelidate';
 
 import router from './router';
 
+// filters
+import './shared/filters';
+
 import 'bootstrap/dist/css/bootstrap.css';
 
 Vue.use(Vuelidate);
@@ -13,6 +16,8 @@ Vue.filter('json', (value: any) => {
 });
 
 Vue.config.productionTip = false;
+
+export const eventBus = new Vue();
 
 new Vue({
   router,

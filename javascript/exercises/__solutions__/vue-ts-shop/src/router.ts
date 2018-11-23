@@ -21,6 +21,10 @@ export default new Router({
       component: Admin,
     },
     {
+      path: '/product',
+      component: ProductDetail,
+    },
+    {
       path: '/product/:id',
       name: 'product',
       component: ProductDetail,

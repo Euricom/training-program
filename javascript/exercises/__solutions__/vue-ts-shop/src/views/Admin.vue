@@ -19,10 +19,10 @@
             <td>{{product.id}}</td>
             <td>{{product.sku}}</td>
              <td><router-link :to="`/product/${product.id}`">{{product.title}}</router-link></td>
-            <td>{{product.price}}</td>
-            <td>{{product.basePrice}}</td>
-            <td>{{product.stocked | yesNo}}</td>
-            <td><a @click="onDelete(product)">Delete</a></td>
+            <td>{{product.price | currency}}</td>
+            <td>{{product.basePrice | currency}}</td>
+            <td>{{product.stocked | stocked}}</td>
+            <td><a @click="onDelete(product.id)">Delete</a></td>
         </tr>
         </tbody>
     </table>
@@ -40,18 +40,31 @@ import { Product } from '@/shared/models/product';
 })
 export default class Admin extends Vue {
   products: Product[] = [];
+  sortBy!: string;
+  sortAsc = false;
 
-  selectedClass(tag: any) {
-    return '';
-  }
   onAdd() {
-    console.log('onAdd');
+    this.$router.push('/product');
   }
-  onSort() {
-    console.log('onSort');
+  async onSort(fieldName: string) {
+    if (fieldName === this.sortBy) {
+      this.sortAsc = !this.sortAsc;
+    } else {
+      this.sortAsc = true;
+      this.sortBy = fieldName;
+    }
+    const sortExpression = `${this.sortAsc ? '' : '-'}${fieldName}`;
+    console.log(sortExpression);
+    this.products = await productService.getAll(0, sortExpression);
   }
-  onDelete() {
-    console.log('onDelete');
+  selectedClass(fieldName) {
+    return fieldName === this.sortBy ? `sort-${this.sortAsc}` : false;
+  }
+
+  onDelete(id) {
+    productService.delete(id).then(product => {
+      this.products = this.products.filter(item => item.id !== product.id);
+    });
   }
 
   async mounted() {
@@ -59,3 +72,30 @@ export default class Admin extends Vue {
   }
 }
 </script>
+<style scoped>
+table > thead > tr > th {
+  cursor: pointer;
+  position: relative;
+  background-image: none;
+}
+
+table > thead > tr > th:after,
+table > thead > tr > th.sort-false:after,
+table > thead > tr > th.sort-true:after {
+  font-family: FontAwesome;
+  padding-left: 5px;
+}
+
+table > thead > tr > th:after {
+  content: '\f0dc';
+  color: #ddd;
+}
+table > thead > tr > th.sort-false:after {
+  content: '\f0de';
+  color: #767676;
+}
+table > thead > tr > th.sort-true:after {
+  content: '\f0dd';
+  color: #767676;
+}
+</style>

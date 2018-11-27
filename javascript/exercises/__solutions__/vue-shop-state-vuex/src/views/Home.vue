@@ -1,13 +1,26 @@
 <template>
-  <div class="home">
-    <img alt="Vue logo" src="../assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
-  </div>
+    <div>
+        <h1>Peter's Web Shop</h1>
+        <div class="row">
+        <div class="col-md-8">
+            <products></products>
+        </div>
+        <div class="col-md-4">
+            <basket></basket>
+        </div>
+        </div>
+    </div>
 </template>
 
 <script>
+import Products from '@/components/products.vue';
+import Basket from '@/components/basket.vue';
+
 export default {
   name: 'home',
-  components: {},
+  components: {
+    Products,
+    Basket,
+  },
 };
 </script>

@@ -1,10 +1,5 @@
 // eslint-disable-next-line
 export class BasketItem {
-  // quantity: number
-  // price: number
-  // total: number
-  // id: number
-
   constructor(data) {
     this.quantity = 0;
     this.price = 0;
@@ -12,9 +7,6 @@ export class BasketItem {
 
     if (data) {
       Object.assign(this, data);
-      // alternative copy all properties
-      // this.id = data.id;
-      // this.quantity = data.quantity;
     }
   }
 

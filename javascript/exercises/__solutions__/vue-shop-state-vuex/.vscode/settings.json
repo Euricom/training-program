@@ -33,18 +33,6 @@
   "html.format.enable": false,
   "html.suggest.angular1": false,
   "html.suggest.ionic": false,
-  "vetur.validation.template": false,
-  "beautify.config": {
-    "editorconfig": true,
-    "indent_size": 2,
-    "wrap_attributes": "force-aligned",
-    "wrap_attributes_indent_size": 2,
-    "wrap_line_length": 80
-  },
-  "beautify.language": {
-    "html": ["htm", "html"]
-  },
-  "beautify.ignore": ["**/*.js", "**/*.jsx"],
   "attrsSorter.order": [
     "is",
     "id",
@@ -74,6 +62,7 @@
   "eslint.validate": ["javascript", "javascriptreact", "vue", "typescript",
     "typescriptreact"
   ],
+  "vetur.format.defaultFormatter.html": "prettyhtml",
   "eslint.enable": true,
   "tslint.enable": false,
   "tslint.autoFixOnSave": true,
@@ -83,7 +72,6 @@
   "stylelint.enable": true,
   "css.validate": false,
   "scss.validate": false,
-  "vetur.validation.style": false,
   // ===
   // MARKDOWN
   // ===

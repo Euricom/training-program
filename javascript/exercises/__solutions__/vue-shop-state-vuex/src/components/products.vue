@@ -1,5 +1,6 @@
 <template>
   <div>
+    {{productsError}}
     <h2>Products</h2>
     <div class="flex-grid">
       <div class="col" v-for="product in products" :key="product.id">
@@ -10,22 +11,23 @@
 </template>
 
 <script>
-import productService from '@/services/productService';
+import { mapGetters } from 'vuex';
+import store from '../store';
+import product from '../store/modules/product';
 import Product from './product.vue';
+
+if (!store.state.products) store.registerModule('products', product);
 
 export default {
   components: {
     Product,
   },
-  data() {
-    return {
-      products: [],
-    };
-  },
   mounted() {
-    productService.getAll().then(products => {
-      this.products = products;
-    });
+    this.$store.dispatch('GET_PRODUCTS');
+    console.log('products', this.products);
+  },
+  computed: {
+    ...mapGetters(['products', 'productsError']),
   },
 };
 </script>

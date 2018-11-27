@@ -1,6 +1,7 @@
 <template>
   <div>
     <h2>Basket</h2>
+    {{basketError}}
     <span v-if="basket.items.length === 0">No Product in Basket</span>
     <div v-if="basket.items.length > 0">
       <table class="table">
@@ -21,43 +22,29 @@
           </tr>
         </tbody>
       </table>
-        <h4>Total: {{basket.totalPrice | currency}}</h4>
+      <h4>Total: {{basket.total | currency}}</h4>
+      <button class="btn btn-default" @click="onClick()">Clear Basket</button>
     </div>
   </div>
 </template>
 
 <script>
-import { eventBus } from '@/main';
-import basketService from '@/services/basketService';
-import productService from '@/services/productService';
-import { Basket } from '@/models/basket';
+import { mapGetters } from 'vuex';
+import store from '../store';
+import basket from '../store/modules/basket';
+
+if (!store.state.basket) store.registerModule('basket', basket);
 
 export default {
-  data() {
-    return {
-      basket: new Basket(),
-    };
-  },
   mounted() {
-    eventBus.$on('addToBasket', event => {
-      this.basket.addProduct(event.product, event.quantity);
-    });
-    basketService
-      .get()
-      .then(basket => {
-        const promises = [];
-        this.basket = basket;
-        this.basket.items.forEach(item => {
-          promises.push(productService.getById(item.id));
-        });
-        return Promise.all(promises);
-      })
-      .then(products => {
-        products.forEach(product => {
-          this.basket.updateProductInfo(product);
-        });
-      });
+    this.$store.dispatch('GET_BASKET');
   },
+  methods: {
+    onClick() {
+      this.$store.dispatch('CLEAR_BASKET');
+    },
+  },
+  computed: { ...mapGetters(['basket', 'basketError']) },
 };
 </script>
 

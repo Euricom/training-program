@@ -1,35 +1,31 @@
 <template>
-  <!-- <div id="app">
-    <div id="nav">
-      <router-link to="/">Home</router-link> |
-      <router-link to="/about">About</router-link>
-    </div>
-    <router-view/>
-  </div> -->
   <div id="app" class="container-fluid">
-    <h1>Peter's Web Shop</h1>
-    <div class="row">
-      <div class="col-md-8">
-        <products></products>
+    <nav class="navbar navbar-default">
+      <div class="container-fluid">
+        <div class="navbar-header">
+          <a class="navbar-brand" routerLink="">My Web Shop</a>
+        </div>
+        <ul class="nav navbar-nav">
+          <li>
+            <router-link to="/">Home</router-link>
+          </li>
+          <li>
+            <router-link to="/admin">Admin</router-link>
+          </li>
+        </ul>
       </div>
-      <div class="col-md-4">
-        <basket></basket>
-      </div>
-    </div>
+    </nav>
+
+    <router-view />
   </div>
 </template>
 
 <script>
 import 'bootstrap/dist/css/bootstrap.css';
-import Products from '@/components/products.vue';
-import Basket from '@/components/basket.vue';
 
 export default {
   name: 'app',
-  components: {
-    Products,
-    Basket,
-  },
+  components: {},
 };
 </script>
 

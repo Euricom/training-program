@@ -22,28 +22,33 @@
               <td>
                 <strong>Price:</strong>
               </td>
-              <td>{{product.price}}</td>
+              <td>{{product.price | currency}}</td>
             </tr>
             <tr>
               <td>
                 <strong>Base Price:</strong>
               </td>
-              <td>{{product.basePrice}}</td>
+              <td>{{product.basePrice | currency}}</td>
             </tr>
           </tbody>
         </table>
-        <button class="btn btn-primary" @click="onAdd()" :disabled="!hasProductInStock">Add</button>
-        <input v-if="product.stocked" type=number value="1" style="width: 30px;" min="1" max="5" v-model="quantity">
+        <button class="btn btn-primary margin" @click="onAdd()" :disabled="!hasProductInStock">Add</button>
+        <input
+          v-if="product.stocked"
+          type="number"
+          value="1"
+          style="width: 30px;"
+          min="1"
+          max="5"
+          v-model="quantity"
+        >
         <span v-if="!product.stocked" style="color: red;">Out of Stock</span>
       </div>
     </div>
-
   </div>
 </template>
 
 <script>
-import { eventBus } from '@/main';
-
 export default {
   props: ['product'],
   data() {
@@ -53,7 +58,7 @@ export default {
   },
   methods: {
     onAdd() {
-      eventBus.$emit('addToBasket', { product: this.product, quantity: +this.quantity });
+      this.$store.dispatch('ADD_PRODUCT_TO_BASKET', { productId: this.product.id, quantity: this.quantity });
     },
   },
   computed: {
@@ -65,4 +70,7 @@ export default {
 </script>
 
 <style scoped>
+.margin {
+  margin: 5px;
+}
 </style>

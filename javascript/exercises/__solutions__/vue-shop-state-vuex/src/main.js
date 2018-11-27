@@ -1,16 +1,17 @@
 import Vue from 'vue';
+import Vuelidate from 'vuelidate';
 import App from './App.vue';
 import router from './router';
 import store from './store';
 
+// filters
+import './filters';
+
 // Debug
 Vue.config.productionTip = false;
 
-// global application filters
-Vue.filter('currency', value => {
-  const num = parseFloat(Math.round(value * 100) / 100).toFixed(2);
-  return `€ ${num}`;
-});
+// Form Validation
+Vue.use(Vuelidate);
 
 /* Simple Event Bus
  * use:
@@ -18,7 +19,7 @@ Vue.filter('currency', value => {
  *    eventBus.$emit('resourceAdded', resoure)
  *
  *    // in component B
- *    eventBut.$on('resourceAdded', (resource) => {
+ *    eventBus.$on('resourceAdded', (resource) => {
  *      console.log('the resource is added', resource)
  *    })
  */

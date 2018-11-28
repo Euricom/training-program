@@ -22,7 +22,7 @@ export class MutationDeleteProduct extends Mutation<DeleteProductPayload> {
     ${productFragment}
   `;
 
-  public execute(productId: string): Observable<Product> {
+  public execute(productId: number): Observable<Product> {
     return this.mutate(
       { productId: productId },
       { refetchQueries: ['getAllProducts', 'getBasket'] },

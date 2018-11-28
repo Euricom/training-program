@@ -18,7 +18,7 @@ export class Basket {
   updateProductInfo(product: Product) {
     const item = this.items.find(basketItem => basketItem.id === product.id);
     if (item) {
-      item.setProductInfo(product);
+      return item.setProductInfo(product);
     }
   }
 

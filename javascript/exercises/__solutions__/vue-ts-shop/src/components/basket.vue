@@ -15,30 +15,36 @@
         <tbody>
           <tr v-for="item in basket.items" :key="item.id">
             <td>{{item.title}}</td>
-            <td>{{item.price | currency}}</td>
+            <td>{{item.price}}</td>
             <td>{{item.quantity}}</td>
-            <td>{{item.getTotalPrice() | currency}}</td>
+            <td>{{item.getTotalPrice()}}</td>
           </tr>
         </tbody>
       </table>
-      <h4>Total: {{basket.getTotalPrice() | currency}}</h4>
+      <h4>Total: {{basket.getTotalPrice()}}</h4>
       <button class="btn btn-default" @click="onClick()">Clear Basket</button>
     </div>
   </div>
 </template>
 
-<script>
+<script lang="ts">
 import { eventBus } from '@/main';
 import basketService from '@/shared/services/basketService';
 import productService from '@/shared/services/productService';
 import { Basket as IBasket } from '@/shared/models/basket';
-import { Component, Prop, Vue } from 'vue-property-decorator';
+import { Component, Prop, Vue, Watch } from 'vue-property-decorator';
 
 @Component({
   components: {},
 })
 export default class Basket extends Vue {
   basket = new IBasket();
+  @Watch('basket', { immediate: true, deep: true })
+  onBasketChanged(val: IBasket, oldVal: IBasket) {
+    console.log('value', val, oldVal);
+    this.basket = val;
+  }
+
   mounted() {
     console.log('very first basket', this.basket);
     eventBus.$on('addToBasket', event => {
@@ -50,7 +56,6 @@ export default class Basket extends Vue {
       .then(basket => {
         const promises = [];
         this.basket = basket;
-        console.log(this.basket);
         this.basket.items.forEach(item => {
           console.log(item);
           promises.push(productService.getById(item.id));
@@ -59,6 +64,7 @@ export default class Basket extends Vue {
       })
       .then(products => {
         products.forEach(product => {
+          console.log('mr basket', product, this.basket.updateProductInfo(product));
           this.basket.updateProductInfo(product);
         });
       })
@@ -66,6 +72,10 @@ export default class Basket extends Vue {
         console.error('failed to get products for basket', error);
         this.basket.clear();
       });
+  }
+
+  updated() {
+    console.log('updating', this.basket);
   }
   onClick() {
     this.basket.clear();

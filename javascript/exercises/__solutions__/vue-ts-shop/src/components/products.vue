@@ -19,7 +19,7 @@ import { Product as IProduct } from '@/shared/models/product';
   components: { Product },
 })
 export default class Products extends Vue {
-  products = [new IProduct()];
+  products = [];
 
   mounted() {
     productService.getAll().then(products => {

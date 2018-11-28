@@ -5,7 +5,7 @@
 export const environment = {
   production: false,
   apiBase: 'https://euri-test-api.now.sh',
-  graphQlUrl: 'http://localhost:3000/graphql',
+  graphQlUrl: 'https://euri-test-api.now.sh/graphql',
 };
 
 /*

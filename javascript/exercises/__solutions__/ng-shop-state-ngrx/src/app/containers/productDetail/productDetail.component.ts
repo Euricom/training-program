@@ -4,7 +4,7 @@ import { Location } from '@angular/common';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 
 import { Product } from '@app/models/product.model';
-import { ProductService } from '@app/services/productService';
+import { ShopFacade } from '@app/shop.facade';
 
 class MyFormGroup extends FormGroup {
   submitted = false;
@@ -20,9 +20,9 @@ export class ProductDetailComponent implements OnInit {
   productForm: MyFormGroup;
 
   constructor(
-    private productService: ProductService,
     private activeRoute: ActivatedRoute,
     private location: Location,
+    private facade: ShopFacade,
   ) {
     this.productForm = new MyFormGroup({
       sku: new FormControl(''),
@@ -53,20 +53,15 @@ export class ProductDetailComponent implements OnInit {
     }
 
     this.product.updateBy(this.productForm.value);
-    this.productService.save(this.product).subscribe(() => {
-      this.location.back();
-    });
+    this.facade.saveProduct(this.product).subscribe(() => this.location.back());
   }
 
   onCancel() {
     this.location.back();
   }
 
-  onDelete(event: any) {
-    event.preventDefault();
-    this.productService.delete(this.product).subscribe(() => {
-      this.location.back();
-    });
+  onDelete() {
+    this.facade.deleteProduct(this.product);
   }
 
   fieldGroupClass(fieldName: string) {

@@ -2,6 +2,7 @@ import { Router } from '@angular/router';
 import { Component, OnInit } from '@angular/core';
 
 import { ShopFacade } from '@app/shop.facade';
+import { Product } from '@app/models/product.model';
 
 @Component({
   selector: 'product-table-list',
@@ -52,12 +53,8 @@ export class ProductTableListComponent implements OnInit {
     this.facade.loadProducts(0, sortExpression);
   }
 
-  onDelete(/* product: Product */) {
-    // this.productService.delete(product).subscribe((deletedProduct) => {
-    //   this.products = this.products.filter(
-    //     (item) => item.id !== deletedProduct.id,
-    //   );
-    // });
+  onDelete(product: Product) {
+    this.facade.deleteProduct(product);
   }
 
   selectedClass(fieldName: string) {

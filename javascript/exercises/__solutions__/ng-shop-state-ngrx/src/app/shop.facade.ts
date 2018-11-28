@@ -66,4 +66,14 @@ export class ShopFacade {
       }),
     );
   }
+
+  deleteProduct(product: Product) {
+    return this.productService
+      .delete(product)
+      .subscribe((deletedProduct) =>
+        this.store.dispatch(
+          new ProductActions.DeleteProduct(deletedProduct.id),
+        ),
+      );
+  }
 }

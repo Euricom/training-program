@@ -22,6 +22,11 @@ export class Product {
   }
 
   updateBy(data: any) {
+    data.price = Number(data.price);
+    data.basePrice = Number(data.basePrice);
+    if (typeof data.stocked === 'string') {
+      data.stocked = data.stocked.toLowerCase() === 'true' ? true : false;
+    }
     Object.assign(this, data);
   }
 }

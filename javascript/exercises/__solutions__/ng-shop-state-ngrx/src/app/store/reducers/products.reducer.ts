@@ -14,16 +14,21 @@ export function productsReducer(
       return action.payload;
 
     case ProductActions.ADD_PRODUCT:
-      // NOT IMPLEMENTED YET
-      return state;
+      return [...state, action.payload];
 
     case ProductActions.DELETE_PRODUCT:
-      // NOT IMPLEMENTED YET
-      return state;
+      return state.filter((product) => product.id !== action.payload);
 
     case ProductActions.UPDATE_PRODUCT:
-      // NOT IMPLEMENTED YET
-      return state;
+      const savedItem: any = state.find(
+        (product) => product.id === action.payload.id,
+      );
+      const savedItemIndex = state.indexOf(savedItem);
+      return [
+        ...state.slice(0, savedItemIndex),
+        action.payload,
+        ...state.slice(savedItemIndex + 1),
+      ];
 
     default:
       return state;

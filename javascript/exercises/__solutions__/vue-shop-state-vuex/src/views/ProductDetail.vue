@@ -1,13 +1,12 @@
 <template>
   <div>
-    {{productsError}}
+    {{ productsError }}
     <h1>Product Detail</h1>
     <form>
       <div class="row">
         <div class="col-md-6">
           <div class="form-group">
-            <label for="sku">Sku</label>
-            <input type="text" class="form-control" id="sku" v-model.trim="form.sku">
+            <label for="sku">Sku</label> <input type="text" class="form-control" id="sku" v-model.trim="form.sku" />
           </div>
         </div>
       </div>
@@ -15,12 +14,11 @@
         <div class="col-md-6">
           <div :class="fieldGroupClass('title')">
             <label for="title">Title *</label>
-            <input type="text" class="form-control" id="title" v-model.trim="$v.form.title.$model">
+            <input type="text" class="form-control" id="title" v-model.trim="$v.form.title.$model" />
             <div class="help-block" v-if="showError('title', 'required')">This field is required</div>
-            <div
-              class="help-block"
-              v-if="showError('title', 'minLength')"
-            >This field must be longer the 3 characters</div>
+            <div class="help-block" v-if="showError('title', 'minLength')">
+              This field must be longer the 3 characters
+            </div>
           </div>
         </div>
       </div>
@@ -28,12 +26,7 @@
         <div class="col-md-6">
           <div :class="fieldGroupClass('price')">
             <label for="title">Price *</label>
-            <input
-              type="number"
-              class="form-control"
-              id="price"
-              v-model.trim="$v.form.price.$model"
-            >
+            <input type="number" class="form-control" id="price" v-model.trim="$v.form.price.$model" />
             <div class="help-block" v-if="showError('price', 'required')">This field is required</div>
           </div>
         </div>
@@ -42,7 +35,7 @@
         <div class="col-md-6">
           <div class="form-group">
             <label for="title">Base Price</label>
-            <input type="text" class="form-control" id="basePrice" v-model.trim="form.basePrice">
+            <input type="text" class="form-control" id="basePrice" v-model.trim="form.basePrice" />
           </div>
         </div>
       </div>
@@ -57,15 +50,15 @@
       <div class="row">
         <div class="col-md-6">
           <div class="form-group">
-            <label>
-              <input type="checkbox" id="stocked" v-model.trim="form.stocked">Stocked
-            </label>
+            <label> <input type="checkbox" id="stocked" v-model.trim="form.stocked" /> Stocked </label>
           </div>
         </div>
       </div>
-      <button type="button" class="btn btn-default" @click="onCancel">Cancel</button>
-      <button type="submit" class="btn btn-success" @click.prevent="onSubmit">Save</button>
-      <button class="btn btn-danger" @click="onDelete()" v-if="id">Delete</button>
+      <div class="btn-toolbar">
+        <button type="submit" class="btn btn-success pull-right" @click.prevent="onSubmit">Save</button>
+        <button type="button" class="btn btn-default pull-right" @click="onCancel">Cancel</button>
+        <button class="btn btn-danger" @click="onDelete();" v-if="id">Delete</button>
+      </div>
     </form>
   </div>
 </template>
@@ -73,6 +66,8 @@
 <script>
 import { required, minLength } from 'vuelidate/lib/validators';
 import { mapGetters } from 'vuex';
+
+import * as actionTypes from '@/store/actionTypes'
 
 export default {
   name: 'productDetail',
@@ -104,12 +99,10 @@ export default {
   mounted() {
     if (this.$route.params.id) {
       this.id = Number(this.$route.params.id);
-      this.$store.dispatch('GET_PRODUCT', this.id);
+      this.$store.dispatch(actionTypes.GET_PRODUCT, this.id);
     }
     this.$watch(
-      () => {
-        return this.formData;
-      },
+      () => this.formData,
       newVal => {
         Object.assign(this.form, newVal);
       },
@@ -130,11 +123,11 @@ export default {
         Object.assign(this.form, this.$v.form.$model);
         this.form.price = Number(this.form.price);
         this.form.basePrice = Number(this.form.basePrice);
-        this.$store.dispatch('ADD_PRODUCT', this.form).then(this.$router.push('/admin'));
+        this.$store.dispatch(actionTypes.SAVE_PRODUCT, this.form).then(this.$router.push('/admin'));
       }
     },
     onDelete() {
-      this.$store.dispatch('DELETE_PRODUCT', this.id);
+      this.$store.dispatch(actionTypes.DELETE_PRODUCT, this.id);
     },
     showError(fieldName, errorName) {
       const field = this.$v.form[fieldName];

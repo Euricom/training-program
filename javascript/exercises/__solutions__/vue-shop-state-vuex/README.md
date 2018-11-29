@@ -1,26 +1,9 @@
-# mu-vue-app-es
+# vue-shop-state-vuex
 
-## Project setup
-```
-yarn install
-```
+## Issues
 
-### Compiles and hot-reloads for development
-```
-yarn run serve
-```
+- Remove models from store
 
-### Compiles and minifies for production
-```
-yarn run build
-```
+## ToDo
 
-### Lints and fixes files
-```
-yarn run lint
-```
-
-### Run your unit tests
-```
-yarn run test:unit
-```
+- Add sorting to table

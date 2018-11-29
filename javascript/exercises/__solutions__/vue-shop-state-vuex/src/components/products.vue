@@ -1,22 +1,16 @@
 <template>
   <div>
-    {{productsError}}
-    <h2>Products</h2>
+    {{ productsError }}
+    <h2>Panel View</h2>
     <div class="flex-grid">
-      <div class="col" v-for="product in products" :key="product.id">
-        <product :product="product"></product>
-      </div>
+      <div class="col" v-for="product in products" :key="product.id"><product :product="product"></product></div>
     </div>
   </div>
 </template>
 
 <script>
 import { mapGetters } from 'vuex';
-import store from '../store';
-import product from '../store/modules/product';
 import Product from './product.vue';
-
-if (!store.state.products) store.registerModule('products', product);
 
 export default {
   components: {

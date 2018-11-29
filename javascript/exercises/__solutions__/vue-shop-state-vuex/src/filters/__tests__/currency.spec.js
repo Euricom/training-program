@@ -1,4 +1,4 @@
-import formatter from './currency';
+import formatter from '../currency';
 
 describe('currency.formatter', () => {
   test('format number', () => {

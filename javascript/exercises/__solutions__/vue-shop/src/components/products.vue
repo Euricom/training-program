@@ -1,10 +1,8 @@
 <template>
   <div>
-    <h2>Products</h2>
+    <h2>Panel View</h2>
     <div class="flex-grid">
-      <div class="col" v-for="product in products" :key="product.id">
-        <product :product="product"></product>
-      </div>
+      <div class="col" v-for="product in products" :key="product.id"><product :product="product"></product></div>
     </div>
   </div>
 </template>
@@ -22,10 +20,8 @@ export default {
       products: [],
     };
   },
-  mounted() {
-    productService.getAll().then(products => {
-      this.products = products;
-    });
+  async mounted() {
+    this.products = await productService.getAll();
   },
 };
 </script>

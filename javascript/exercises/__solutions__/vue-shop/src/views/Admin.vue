@@ -1,9 +1,6 @@
 <template>
   <div class="admin">
-    <h1>Webshop Admin Page</h1>
-    <div class="row">
-      <products-table></products-table>
-    </div>
+    <div class="row"><products-table></products-table></div>
   </div>
 </template>
 

@@ -26,8 +26,6 @@
     // Auto Rename Tag
     "formulahendry.auto-rename-tag",
     // Sorting HTML and Jade attributes
-    "mrmlnc.vscode-attrs-sorter",
-    // js-beautify for VS Code (only used for html format)
-    "HookyQR.beautify"
+    "mrmlnc.vscode-attrs-sorter"
   ]
 }

@@ -3,6 +3,9 @@
 import axios from 'axios';
 import { Product } from '@/models/product';
 
+// FIXME: avoid duplication of https://euri-test-api.now.sh/api...
+// TODO: add unit tests
+
 class ProductService {
   getAll(page = 0, sortExpression = '') {
     const config = {

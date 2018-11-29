@@ -1,6 +1,9 @@
+/* eslint-disable import/prefer-default-export */
+
 import { BasketItem } from './basketItem';
 
-// eslint-disable-next-line
+// TODO: add unit test
+
 export class Basket {
   // totalPrice: number
   // items: BasketItem[]

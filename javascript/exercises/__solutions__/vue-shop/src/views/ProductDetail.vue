@@ -5,8 +5,7 @@
       <div class="row">
         <div class="col-md-6">
           <div class="form-group">
-            <label for="sku">Sku</label>
-            <input type="text" class="form-control" id="sku" v-model.trim="form.sku">
+            <label for="sku">Sku</label> <input type="text" class="form-control" id="sku" v-model.trim="form.sku" />
           </div>
         </div>
       </div>
@@ -14,12 +13,11 @@
         <div class="col-md-6">
           <div :class="fieldGroupClass('title')">
             <label for="title">Title *</label>
-            <input type="text" class="form-control" id="title" v-model.trim="$v.form.title.$model">
+            <input type="text" class="form-control" id="title" v-model.trim="$v.form.title.$model" />
             <div class="help-block" v-if="showError('title', 'required')">This field is required</div>
-            <div
-              class="help-block"
-              v-if="showError('title', 'minLength')"
-            >This field must be longer the 3 characters</div>
+            <div class="help-block" v-if="showError('title', 'minLength')">
+              This field must be longer the 3 characters
+            </div>
           </div>
         </div>
       </div>
@@ -27,12 +25,7 @@
         <div class="col-md-6">
           <div :class="fieldGroupClass('price')">
             <label for="title">Price *</label>
-            <input
-              type="number"
-              class="form-control"
-              id="price"
-              v-model.trim="$v.form.price.$model"
-            >
+            <input type="number" class="form-control" id="price" v-model.trim="$v.form.price.$model" />
             <div class="help-block" v-if="showError('price', 'required')">This field is required</div>
           </div>
         </div>
@@ -41,7 +34,7 @@
         <div class="col-md-6">
           <div class="form-group">
             <label for="title">Base Price</label>
-            <input type="text" class="form-control" id="basePrice" v-model.trim="form.basePrice">
+            <input type="text" class="form-control" id="basePrice" v-model.trim="form.basePrice" />
           </div>
         </div>
       </div>
@@ -56,15 +49,15 @@
       <div class="row">
         <div class="col-md-6">
           <div class="form-group">
-            <label>
-              <input type="checkbox" id="stocked" v-model.trim="form.stocked">Stocked
-            </label>
+            <label> <input type="checkbox" id="stocked" v-model.trim="form.stocked" /> Stocked </label>
           </div>
         </div>
       </div>
-      <button type="button" class="btn btn-default" @click="onCancel">Cancel</button>
-      <button type="submit" class="btn btn-success" @click.prevent="onSubmit">Save</button>
-      <button class="btn btn-danger" @click="onDelete()" v-if="id">Delete</button>
+      <div class="btn-toolbar">
+        <button type="submit" class="btn btn-success pull-right" @click.prevent="onSubmit">Save</button>
+        <button type="button" class="btn btn-default pull-right" @click="onCancel">Cancel</button>
+        <button class="btn btn-danger" @click="onDelete();" v-if="id">Delete</button>
+      </div>
     </form>
   </div>
 </template>
@@ -106,7 +99,6 @@ export default {
     if (this.$route.params.id) {
       this.id = this.$route.params.id;
       this.product = await productService.getById(this.id);
-      console.log('product', this.product);
       Object.assign(this.form, this.product);
     }
   },

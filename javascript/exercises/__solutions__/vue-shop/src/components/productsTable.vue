@@ -1,32 +1,30 @@
 <template>
   <div class="col-md-12">
-    <h2>Products</h2>
-    <button class="btn btn-default" @click="onAdd()">Add Product</button>
+    <h2>Table View</h2>
+    <button class="btn btn-default" @click="onAdd();">Add Product</button>
     <table class="table table-hover">
       <thead>
         <tr>
-          <th :class="selectedClass('id')" @click="onSort('id')">Id</th>
-          <th :class="selectedClass('sku')" @click="onSort('sku')">Sku</th>
-          <th :class="selectedClass('title')" @click="onSort('title')">Title</th>
-          <th :class="selectedClass('price')" @click="onSort('price')">Price</th>
-          <th :class="selectedClass('basePrice')" @click="onSort('basePrice')">Base Price</th>
-          <th :class="selectedClass('stocked')" @click="onSort('stocked')">Stocked</th>
+          <th :class="selectedClass('id')" @click="onSort('id');">Id</th>
+          <th :class="selectedClass('sku')" @click="onSort('sku');">Sku</th>
+          <th :class="selectedClass('title')" @click="onSort('title');">Title</th>
+          <th :class="selectedClass('price')" @click="onSort('price');">Price</th>
+          <th :class="selectedClass('basePrice')" @click="onSort('basePrice');">Base Price</th>
+          <th :class="selectedClass('stocked')" @click="onSort('stocked');">Stocked</th>
           <th></th>
         </tr>
       </thead>
       <tbody>
         <tr v-for="product in products" :key="product.id">
+          <td>{{ product.id }}</td>
+          <td>{{ product.sku }}</td>
           <td>
-            <router-link :to="{ name: 'product', params: { id: product.id }}">{{product.id}}</router-link>
+            <router-link :to="{ name: 'product', params: { id: product.id } }">{{ product.title }}</router-link>
           </td>
-          <td>{{product.sku}}</td>
-          <td>{{product.title}}</td>
-          <td>{{product.price | currency}}</td>
-          <td>{{product.basePrice | currency}}</td>
-          <td>{{product.stocked | stocked}}</td>
-          <td>
-            <button @click="onDelete(product.id)" type="button" class="btn btn-danger">Delete</button>
-          </td>
+          <td>{{ product.price | currency }}</td>
+          <td>{{ product.basePrice | currency }}</td>
+          <td>{{ product.stocked ? 'stock' : '-' }}</td>
+          <td><a href="#" @click="onDelete(product.id);">Delete</a></td>
         </tr>
       </tbody>
     </table>
@@ -44,11 +42,13 @@ export default {
       sortAsc: false,
     };
   },
+  async mounted() {
+    this.products = await productService.getAll();
+  },
   methods: {
-    onDelete(id) {
-      productService.delete(id).then(product => {
-        this.products = this.products.filter(item => item.id !== product.id);
-      });
+    async onDelete(id) {
+      const deletedProduct = await productService.delete(id);
+      this.products = this.products.filter(item => item.id !== deletedProduct.id);
     },
     onAdd() {
       this.$router.push('/product');
@@ -61,15 +61,11 @@ export default {
         this.sortBy = fieldName;
       }
       const sortExpression = `${this.sortAsc ? '' : '-'}${fieldName}`;
-      console.log(sortExpression);
       this.products = await productService.getAll(0, sortExpression);
     },
     selectedClass(fieldName) {
       return fieldName === this.sortBy ? `sort-${this.sortAsc}` : false;
     },
-  },
-  async mounted() {
-    this.products = await productService.getAll();
   },
 };
 </script>

@@ -1,15 +1,10 @@
 <template>
-    <div>
-        <h1>Peter's Web Shop</h1>
-        <div class="row">
-        <div class="col-md-8">
-            <products></products>
-        </div>
-        <div class="col-md-4">
-            <basket></basket>
-        </div>
-        </div>
+  <div>
+    <div class="row">
+      <div class="col-md-8"><products></products></div>
+      <div class="col-md-4"><basket></basket></div>
     </div>
+  </div>
 </template>
 
 <script>

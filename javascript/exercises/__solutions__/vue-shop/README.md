@@ -1,26 +1,10 @@
-# mu-vue-app-es
+# vue-shop
 
-## Project setup
-```
-yarn install
-```
+## Issues
 
-### Compiles and hot-reloads for development
-```
-yarn run serve
-```
+- When deleting a product from the "Product Details" it is still show in the list after the product was deleted.
 
-### Compiles and minifies for production
-```
-yarn run build
-```
+## Todo
 
-### Lints and fixes files
-```
-yarn run lint
-```
-
-### Run your unit tests
-```
-yarn run test:unit
-```
+- Add unit tests
+- Add error handling for JS error & communication errors (alert box)

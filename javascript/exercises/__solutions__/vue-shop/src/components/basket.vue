@@ -14,15 +14,15 @@
         </thead>
         <tbody>
           <tr v-for="item in basket.items" :key="item.id">
-            <td>{{item.title}}</td>
-            <td>{{item.price | currency}}</td>
-            <td>{{item.quantity}}</td>
-            <td>{{item.total | currency}}</td>
+            <td>{{ item.title }}</td>
+            <td>{{ item.price | currency }}</td>
+            <td>{{ item.quantity }}</td>
+            <td>{{ item.total | currency }}</td>
           </tr>
         </tbody>
       </table>
-      <h4>Total: {{basket.totalPrice | currency}}</h4>
-      <button class="btn btn-default" @click="onClick()">Clear Basket</button>
+      <h4>Total: {{ basket.totalPrice | currency }}</h4>
+      <button class="btn btn-default" @click="onClick();">Clear Basket</button>
     </div>
   </div>
 </template>
@@ -49,7 +49,6 @@ export default {
       .then(basket => {
         const promises = [];
         this.basket = basket;
-        console.log(basket);
         this.basket.items.forEach(item => {
           promises.push(productService.getById(item.id));
         });
@@ -74,5 +73,4 @@ export default {
 };
 </script>
 
-<style scoped>
-</style>
+<style scoped></style>

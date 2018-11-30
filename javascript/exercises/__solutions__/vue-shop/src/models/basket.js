@@ -2,12 +2,7 @@
 
 import { BasketItem } from './basketItem';
 
-// TODO: add unit test
-
 export class Basket {
-  // totalPrice: number
-  // items: BasketItem[]
-
   constructor(data) {
     this.items = [];
     if (data) {
@@ -24,7 +19,8 @@ export class Basket {
     let item = this.items.find(x => x.id === product.id);
     if (!item) {
       // new
-      item = new BasketItem({ id: product.id, quantity: 0 });
+      const newId = this.items.reduce((acc, basketItem) => acc + basketItem.id, 0);
+      item = new BasketItem({ id: newId, productId: product.id, quantity: 0 });
       item.setProductInfo(product);
       this.items = [...this.items, item];
     }

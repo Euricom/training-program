@@ -1,11 +1,18 @@
 import Vue from 'vue';
 import Vuelidate from 'vuelidate';
+import Toasted from 'vue-toasted';
 import App from './App.vue';
 import router from './router';
 
 // filters
 import './filters';
 
+const options = {
+  position: 'top-right',
+  duration: 5000,
+};
+
+Vue.use(Toasted, options);
 // Debug
 Vue.config.productionTip = false;
 

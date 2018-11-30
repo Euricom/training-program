@@ -1,10 +1,7 @@
 /* eslint-disable class-methods-use-this */
 
-import axios from 'axios';
+import { apiConfig } from './api';
 import { Product } from '@/models/product';
-
-// FIXME: avoid duplication of https://euri-test-api.now.sh/api...
-// TODO: add unit tests
 
 class ProductService {
   getAll(page = 0, sortExpression = '') {
@@ -14,28 +11,26 @@ class ProductService {
         sort: sortExpression,
       },
     };
-    return axios.get('https://euri-test-api.now.sh/api/products', config).then(res => {
+    return apiConfig.get('/products', config).then(res => {
       const dtoArray = res.data.selectedProducts;
       return dtoArray.map(dto => new Product(dto));
     });
   }
 
   getById(id) {
-    return axios.get(`https://euri-test-api.now.sh/api/products/${id}`).then(res => new Product(res.data));
+    return apiConfig.get(`/products/${id}`).then(res => new Product(res.data));
   }
 
   update(product) {
-    return axios
-      .put(`https://euri-test-api.now.sh/api/products/${product.id}`, product)
-      .then(res => new Product(res.data));
+    return apiConfig.put(`/products/${product.id}`, product).then(res => new Product(res.data));
   }
 
   create(product) {
-    return axios.post(`https://euri-test-api.now.sh/api/products`, product).then(res => new Product(res.data));
+    return apiConfig.post(`/products`, product).then(res => new Product(res.data));
   }
 
   delete(id) {
-    return axios.delete(`https://euri-test-api.now.sh/api/products/${id}`).then(res => new Product(res.data));
+    return apiConfig.delete(`/products/${id}`).then(res => new Product(res.data));
   }
 
   save(product) {

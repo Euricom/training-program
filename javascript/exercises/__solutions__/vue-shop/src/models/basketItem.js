@@ -1,7 +1,5 @@
 /* eslint-disable import/prefer-default-export */
 
-// TODO: add unit test
-
 export class BasketItem {
   constructor(data) {
     this.quantity = 0;

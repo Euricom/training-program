@@ -23,7 +23,7 @@
           </td>
           <td>{{ product.price | currency }}</td>
           <td>{{ product.basePrice | currency }}</td>
-          <td>{{ product.stocked ? 'stock' : '-' }}</td>
+          <td>{{ product.stocked ? 'In Stock' : '-' }}</td>
           <td><a href="#" @click="onDelete(product.id);">Delete</a></td>
         </tr>
       </tbody>

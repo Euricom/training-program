@@ -110,11 +110,15 @@ export default {
       this.$v.form.$touch();
       if (!this.$v.$invalid) {
         const newProduct = new Product(this.$v.form.$model);
-        console.log(newProduct);
         Object.assign(this.product, newProduct);
-        console.log(this.product);
 
-        productService.save(this.product).then(this.$router.push('/admin'));
+        newProduct.price = Number(newProduct.price);
+        newProduct.basePrice = Number(newProduct.basePrice);
+        if (typeof newProduct.stocked === 'string') {
+          newProduct.stocked = newProduct.stocked.toLowerCase() === 'true';
+        }
+
+        productService.save(newProduct).then(this.$router.push('/admin'));
       }
     },
     onDelete() {

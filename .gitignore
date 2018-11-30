@@ -6,3 +6,5 @@ bundle.js
 
 .cache/
 .cache-loader/
+
+.env

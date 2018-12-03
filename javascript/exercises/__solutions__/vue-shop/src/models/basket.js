@@ -29,7 +29,7 @@ export class Basket {
   }
 
   updateProductInfo(product) {
-    const item = this.items.find(x => x.id === product.id);
+    const item = this.items.find(x => x.productId === product.id);
     if (item) {
       item.setProductInfo(product);
       this.updateTotalPrice();

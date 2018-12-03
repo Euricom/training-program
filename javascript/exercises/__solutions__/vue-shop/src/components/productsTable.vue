@@ -32,6 +32,7 @@
 </template>
 
 <script>
+import { eventBus } from '@/eventBus';
 import productService from '@/services/productService';
 
 export default {
@@ -48,6 +49,7 @@ export default {
   methods: {
     async onDelete(id) {
       const deletedProduct = await productService.delete(id);
+      eventBus.$emit('success', `Product ${deletedProduct.title} Deleted`);
       this.products = this.products.filter(item => item.id !== deletedProduct.id);
     },
     onAdd() {

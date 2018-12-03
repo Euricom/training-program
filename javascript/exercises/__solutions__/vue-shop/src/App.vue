@@ -15,7 +15,7 @@
 </template>
 
 <script>
-import { eventBus } from '@/main';
+import { eventBus } from '@/eventBus';
 import 'bootstrap/dist/css/bootstrap.css';
 import 'font-awesome/css/font-awesome.css';
 
@@ -25,6 +25,10 @@ export default {
   mounted() {
     eventBus.$on('error', event => {
       this.$toasted.error(event.message);
+    });
+
+    eventBus.$on('success', event => {
+      this.$toasted.success(event);
     });
   },
 };

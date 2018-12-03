@@ -63,6 +63,7 @@
 </template>
 
 <script>
+import { eventBus } from '@/eventBus';
 import { required, minLength } from 'vuelidate/lib/validators';
 import productService from '@/services/productService';
 import { Product } from '@/models/product';
@@ -118,11 +119,18 @@ export default {
           newProduct.stocked = newProduct.stocked.toLowerCase() === 'true';
         }
 
-        productService.save(newProduct).then(this.$router.push('/admin'));
+        productService.save(newProduct).then(product => {
+          eventBus.$emit('success', `Product ${product.title} Saved`);
+          this.$router.push('/admin');
+        });
       }
     },
     onDelete() {
-      productService.delete(this.id).then(this.$router.push('/admin'));
+      // eslint-disable-next-line
+      productService.delete(this.id).then(product => {
+        eventBus.$emit('success', `Product ${product.title} Deleted`);
+        this.$router.push('/admin');
+      });
     },
     showError(fieldName, errorName) {
       const field = this.$v.form[fieldName];

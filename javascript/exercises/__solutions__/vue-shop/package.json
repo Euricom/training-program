@@ -6,7 +6,7 @@
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",
     "lint": "vue-cli-service lint --fix",
-    "test": "vue-cli-service test:unit",
+    "test": "vue-cli-service test:unit --no-cache",
     "test:watch": "vue-cli-service test:unit --watch",
     "format": "prettier --write '**/*.{js,css,vue}'"
   },
@@ -24,6 +24,7 @@
     "vuex": "^3.0.1"
   },
   "devDependencies": {
+    "@babel/core": "^7.1.6",
     "@vue/cli-plugin-babel": "^3.2.0",
     "@vue/cli-plugin-eslint": "^3.2.1",
     "@vue/cli-plugin-unit-jest": "^3.2.0",
@@ -31,8 +32,8 @@
     "@vue/eslint-config-airbnb": "^4.0.0",
     "@vue/test-utils": "^1.0.0-beta.26",
     "axios-mock-adapter": "^1.15.0",
-    "babel-core": "7.0.0-bridge.0",
-    "babel-jest": "^23.0.1",
+    "babel-core": "^7.0.0-bridge.0",
+    "babel-jest": "^23.6.0",
     "eslint-config-prettier": "^3.3.0",
     "intl": "^1.2.5",
     "jest-watch-typeahead": "^0.2.0",

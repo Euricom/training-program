@@ -28,7 +28,7 @@
 </template>
 
 <script>
-import { eventBus } from '@/main';
+import { eventBus } from '@/eventBus';
 import basketService from '@/services/basketService';
 import productService from '@/services/productService';
 import { Basket } from '@/models/basket';
@@ -42,7 +42,9 @@ export default {
   mounted() {
     eventBus.$on('addToBasket', event => {
       this.basket.addProduct(event.product, event.quantity);
-      basketService.create(event.product.id, event.quantity);
+      basketService.create(event.product.id, event.quantity).then(basket => {
+        if (basket) eventBus.$emit('success', `Product ${event.product.title} Added`);
+      });
     });
     basketService
       .get()
@@ -50,7 +52,7 @@ export default {
         const promises = [];
         this.basket = basket;
         this.basket.items.forEach(item => {
-          promises.push(productService.getById(item.id));
+          promises.push(productService.getById(item.productId));
         });
         return Promise.all(promises);
       })

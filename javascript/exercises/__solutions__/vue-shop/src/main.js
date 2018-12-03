@@ -10,28 +10,19 @@ import './filters';
 const options = {
   position: 'top-right',
   duration: 5000,
+  singleton: true,
 };
-
-Vue.use(Toasted, options);
 // Debug
 Vue.config.productionTip = false;
 
 // Form Validation
 Vue.use(Vuelidate);
 
-/* Simple Event Bus
- * use:
- *    // in component A
- *    eventBus.$emit('resourceAdded', resoure)
- *
- *    // in component B
- *    eventBus.$on('resourceAdded', (resource) => {
- *      console.log('the resource is added', resource)
- *    })
- */
-export const eventBus = new Vue();
+// Hook toaster component to vm
+Vue.use(Toasted, options);
 
 /* The main application */
+// eslint-disable-next-line import/prefer-default-export
 export const app = new Vue({
   router,
   render: h => h(App),

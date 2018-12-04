@@ -1,7 +1,7 @@
-import { Product } from '@app/models/product.model';
 import * as ProductActions from '../actions/product.actions';
+import { IProductDTO } from '@app/services/productService';
 
-export interface IProductsState extends Array<Product> {}
+export interface IProductsState extends Array<IProductDTO> {}
 
 const initialState: IProductsState = [];
 

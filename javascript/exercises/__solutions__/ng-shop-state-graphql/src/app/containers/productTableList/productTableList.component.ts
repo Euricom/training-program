@@ -48,15 +48,6 @@ export class ProductTableListComponent implements OnInit {
   }
 
   onDelete(product: any) {
-    // see also: https://github.com/apollographql/apollo-client/issues/899
-    // direct mutation call
-    // this.mutationDeleteProduct
-    //   .mutate(
-    //     // variables
-    //     { productId: product.id }, // options
-    //     { refetchQueries: ['allProducts', 'getBasket'] },
-    //   )
-    //   .subscribe();
     this.mutationDeleteProduct.execute(product.id).subscribe();
   }
 

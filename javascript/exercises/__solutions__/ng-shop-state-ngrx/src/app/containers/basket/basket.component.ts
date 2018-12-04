@@ -1,7 +1,7 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
-import { IBasket } from 'app/models/basket.model';
 import { Subscription } from 'rxjs';
 import { ShopFacade } from 'app/shop.facade';
+import { IBasket } from '@app/services/basketService';
 
 @Component({
   selector: 'basket',

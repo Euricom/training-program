@@ -27,30 +27,5 @@ export class MutationDeleteProduct extends Mutation<DeleteProductPayload> {
       { productId: productId },
       { refetchQueries: ['getAllProducts', 'getBasket'] },
     ).pipe(map((result) => result.data.deleteProduct.product));
-    // updateQueries: {
-    //   allProducts: (prev, { mutationResult }): any => {
-    //     console.log('updateQueries', prev.allProducts, mutationResult);
-    //   },
-    // },
-    // update: (cache, { data: { deleteProduct } }) => {
-    //   console.log('update after delete', deleteProduct, cache);
-
-    //   const query = gql`
-    //     query GetAllProducts {
-    //       allProducts(orderBy: "") @client {
-    //         edges {
-    //           node {
-    //             id
-    //             title
-    //           }
-    //         }
-    //       }
-    //     }
-    //   `;
-    //   const previous = cache.readQuery({
-    //     query,
-    //   });
-    //   console.log('update query', previous);
-    // },
   }
 }

@@ -1,16 +1,12 @@
 import { MutationAddOrUpdateProduct } from './../../graphql/mutations/mutationAddOrUpdateProduct';
 import { MutationDeleteProduct } from './../../graphql/mutations/mutationDeleteProduct';
 import { Component, OnInit, OnDestroy } from '@angular/core';
-// import { ActivatedRoute } from '@angular/router';
 import { Location } from '@angular/common';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute } from '@angular/router';
 import { GetProductQuery } from '@app/graphql/queries/queryProduct';
 import { Observable, Subscription } from 'rxjs';
 import { Product } from 'graphql-types';
-
-// import { Product } from '@app/models/product.model';
-// import { ProductService } from '@app/services/productService';
 
 class MyFormGroup extends FormGroup {
   submitted = false;
@@ -21,7 +17,6 @@ class MyFormGroup extends FormGroup {
   templateUrl: './productDetail.component.html',
 })
 export class ProductDetailComponent implements OnInit, OnDestroy {
-  // product = new Product();
   productId: number;
   name?: string;
   productForm: MyFormGroup;
@@ -29,7 +24,6 @@ export class ProductDetailComponent implements OnInit, OnDestroy {
   private subscription: Subscription;
 
   constructor(
-    // private productService: ProductService,
     private route: ActivatedRoute,
     private location: Location,
     private getProductQuery: GetProductQuery,
@@ -57,13 +51,7 @@ export class ProductDetailComponent implements OnInit, OnDestroy {
       this.subscription = this.product$.subscribe((product) =>
         this.productForm.patchValue(product),
       );
-      // this.productForm.patchValue(product);
     }
-    // this.product =
-    //   (this.activeRoute.snapshot.data['product'] as Product) || new Product();
-    // if (!this.product.isNew()) {
-    //   this.productForm.patchValue(this.product);
-    // }
   }
 
   onSubmit(form: MyFormGroup) {
@@ -87,10 +75,6 @@ export class ProductDetailComponent implements OnInit, OnDestroy {
     this.addOrUpdateProductMutation
       .execute(this.productForm.value)
       .subscribe(() => this.location.back());
-    // this.product = Object.assign(this.product, this.productForm.value);
-    // this.productService.save(this.product).subscribe(() => {
-    //   this.location.back();
-    // });
   }
 
   onCancel() {
@@ -101,9 +85,6 @@ export class ProductDetailComponent implements OnInit, OnDestroy {
     this.deleteProductMutation
       .execute(this.productId)
       .subscribe(() => this.location.back());
-    // this.productService.delete(this.product).subscribe(() => {
-    //   this.location.back();
-    // });
   }
 
   fieldGroupClass(fieldName: string) {

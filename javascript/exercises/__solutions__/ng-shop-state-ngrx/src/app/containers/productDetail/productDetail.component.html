@@ -95,7 +95,7 @@
   </button>
   <button type="submit" class="btn btn-success">Save</button>
   <button
-    *ngIf="!product.isNew()"
+    *ngIf="product.id"
     class="btn btn-danger pull-right"
     (click)="onDelete()"
   >

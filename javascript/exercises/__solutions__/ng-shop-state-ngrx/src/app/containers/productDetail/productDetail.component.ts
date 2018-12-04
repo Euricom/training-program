@@ -3,8 +3,8 @@ import { ActivatedRoute } from '@angular/router';
 import { Location } from '@angular/common';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 
-import { Product } from '@app/models/product.model';
 import { ShopFacade } from '@app/shop.facade';
+import { IProductDTO } from '@app/services/productService';
 
 class MyFormGroup extends FormGroup {
   submitted = false;
@@ -15,7 +15,7 @@ class MyFormGroup extends FormGroup {
   templateUrl: './productDetail.component.html',
 })
 export class ProductDetailComponent implements OnInit {
-  product = new Product();
+  product?: IProductDTO;
   name?: string;
   productForm: MyFormGroup;
 
@@ -38,10 +38,9 @@ export class ProductDetailComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.product =
-      (this.activeRoute.snapshot.data['product'] as Product) || new Product();
+    this.product = this.activeRoute.snapshot.data['product'];
 
-    if (!this.product.isNew()) {
+    if (this.product && this.product.id) {
       this.productForm.patchValue(this.product);
     }
   }
@@ -52,8 +51,12 @@ export class ProductDetailComponent implements OnInit {
       return;
     }
 
-    this.product.updateBy(this.productForm.value);
-    this.facade.saveProduct(this.product).subscribe(() => this.location.back());
+    Object.assign(this.product, this.productForm.value);
+    if (this.product) {
+      this.facade
+        .saveProduct(this.product)
+        .subscribe(() => this.location.back());
+    }
   }
 
   onCancel() {
@@ -61,7 +64,9 @@ export class ProductDetailComponent implements OnInit {
   }
 
   onDelete() {
-    this.facade.deleteProduct(this.product);
+    if (this.product) {
+      this.facade.deleteProduct(this.product);
+    }
   }
 
   fieldGroupClass(fieldName: string) {

@@ -1,8 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Store } from '@ngrx/store';
 
-import { Product } from '@app/models/product.model';
-
 import {
   getProductByRouteId,
   getProducts,
@@ -11,7 +9,7 @@ import {
 } from './store';
 import * as ProductActions from './store/actions/product.actions';
 import * as BasketActions from './store/actions/basket.actions';
-import { ProductService } from 'app/services/productService';
+import { ProductService, IProductDTO } from 'app/services/productService';
 import { BasketService } from 'app/services/basketService';
 import { Observable } from 'rxjs';
 import { share, tap } from 'rxjs/operators';
@@ -50,16 +48,16 @@ export class ShopFacade {
     });
   }
 
-  addProduct(product: Product, quantity: number) {
+  addProduct(product: IProductDTO, quantity: number) {
     this.basketService.addProduct(product, quantity).subscribe(() => {
       this.store.dispatch(new BasketActions.AddProduct({ product, quantity }));
     });
   }
 
-  saveProduct(product: Product): Observable<Product> {
+  saveProduct(product: IProductDTO): Observable<IProductDTO> {
     return this.productService.save(product).pipe(
       tap((products) => {
-        if (product.isNew()) {
+        if (!product.id) {
           this.store.dispatch(new ProductActions.AddProduct(products));
         }
         this.store.dispatch(new ProductActions.UpdateProduct(products));
@@ -67,7 +65,7 @@ export class ShopFacade {
     );
   }
 
-  deleteProduct(product: Product) {
+  deleteProduct(product: IProductDTO) {
     return this.productService
       .delete(product)
       .subscribe((deletedProduct) =>

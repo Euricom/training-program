@@ -11,7 +11,7 @@
     "emitDecoratorMetadata": true,
     "experimentalDecorators": true,
     "target": "es5",                   /* Specify ECMAScript target version: 'ES3' (default), 'ES5', 'ES2015', 'ES2016', 'ES2017', or 'ESNEXT'. */
-    "strict": true,                    /* Enable all strict type-checking options. */
+    "strict": false,                    /* Enable all strict type-checking options. */
     "noImplicitAny": false,             /* Raise error on expressions and declarations with an implied 'any' type. */
     "strictFunctionTypes": false,
     "esModuleInterop": true,           /* Allow default imports from modules with no default export. */

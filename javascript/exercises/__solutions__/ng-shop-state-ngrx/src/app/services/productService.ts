@@ -3,11 +3,10 @@ import { HttpClient, HttpParams } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
 
-import { Product } from '@app/models/product.model';
 import { environment } from '@env/environment';
 
 export interface IProductDTO {
-  id?: number;
+  id: number;
   sku?: string;
   title?: string;
   desc?: string;
@@ -29,7 +28,7 @@ interface IProductsDTO {
 })
 export class ProductService {
   constructor(private httpClient: HttpClient) {}
-  getProducts(page = 0, sortExpression = ''): Observable<Product[]> {
+  getProducts(page = 0, sortExpression = ''): Observable<IProductDTO[]> {
     let params = new HttpParams();
     if (page) {
       params = params.set('page', page.toString());
@@ -39,44 +38,39 @@ export class ProductService {
     }
     return this.httpClient
       .get<IProductsDTO>(`${environment.apiBase}/api/products`, { params })
-      .pipe(
-        map((data) =>
-          data.selectedProducts.map((resource) => new Product(resource)),
-        ),
-      );
+      .pipe(map((data) => data.selectedProducts));
   }
 
-  getProduct(id: number): Observable<Product> {
-    return this.httpClient
-      .get<IProductDTO>(`${environment.apiBase}/api/products/${id}`)
-      .pipe(map((resource) => new Product(resource)));
+  getProduct(id: number): Observable<IProductDTO> {
+    return this.httpClient.get<IProductDTO>(
+      `${environment.apiBase}/api/products/${id}`,
+    );
   }
 
-  update(product: Product) {
-    return this.httpClient
-      .put<IProductDTO>(
-        `${environment.apiBase}/api/products/${product.id}`,
-        product,
-      )
-      .pipe(map((resource) => new Product(resource)));
+  update(product: IProductDTO) {
+    return this.httpClient.put<IProductDTO>(
+      `${environment.apiBase}/api/products/${product.id}`,
+      product,
+    );
   }
 
-  create(product: Product) {
-    return this.httpClient
-      .post<IProductDTO>(`${environment.apiBase}/api/products`, product)
-      .pipe(map((resource) => new Product(resource)));
+  create(product: IProductDTO) {
+    return this.httpClient.post<IProductDTO>(
+      `${environment.apiBase}/api/products`,
+      product,
+    );
   }
 
-  save(product: Product) {
-    if (product.isNew()) {
+  save(product: IProductDTO) {
+    if (!product.id) {
       return this.create(product);
     }
     return this.update(product);
   }
 
-  delete(product: Product) {
-    return this.httpClient
-      .delete<IProductDTO>(`${environment.apiBase}/api/products/${product.id}`)
-      .pipe(map((resource) => new Product(resource)));
+  delete(product: IProductDTO) {
+    return this.httpClient.delete<IProductDTO>(
+      `${environment.apiBase}/api/products/${product.id}`,
+    );
   }
 }

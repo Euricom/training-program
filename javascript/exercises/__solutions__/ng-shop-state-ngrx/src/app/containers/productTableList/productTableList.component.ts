@@ -2,7 +2,7 @@ import { Router } from '@angular/router';
 import { Component, OnInit } from '@angular/core';
 
 import { ShopFacade } from '@app/shop.facade';
-import { Product } from '@app/models/product.model';
+import { IProductDTO } from '@app/services/productService';
 
 @Component({
   selector: 'product-table-list',
@@ -13,30 +13,11 @@ export class ProductTableListComponent implements OnInit {
   errorMessage!: string;
   sortBy!: string;
   sortAsc = false;
-  // products: Product[] = [];
-  // latestPage = 0;
   products$ = this.facade.products$;
 
-  constructor(
-    //   private productService: ProductService,
-    private router: Router,
-    private facade: ShopFacade,
-  ) {}
+  constructor(private router: Router, private facade: ShopFacade) {}
 
-  public ngOnInit(): void {
-    // this.getProducts();
-  }
-
-  // private getProducts(page = 0, sortExpression = '') {
-  //   this.productService.getProducts(page, sortExpression).subscribe(
-  //     (products) => {
-  //       this.products = products;
-  //     },
-  //     (error) => {
-  //       this.errorMessage = error.message;
-  //     },
-  //   );
-  // }
+  public ngOnInit(): void {}
 
   onAdd() {
     this.router.navigate(['/detail']);
@@ -53,7 +34,7 @@ export class ProductTableListComponent implements OnInit {
     this.facade.loadProducts(0, sortExpression);
   }
 
-  onDelete(product: Product) {
+  onDelete(product: IProductDTO) {
     this.facade.deleteProduct(product);
   }
 

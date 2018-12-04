@@ -3,6 +3,10 @@ import * as BasketActions from '../actions/basket.actions';
 export interface IBasketItem {
   id: number;
   quantity: number;
+  productId?: number;
+  title?: string;
+  total?: number;
+  price?: number;
 }
 
 export interface IBasketState {
@@ -45,7 +49,12 @@ export function basketReducer(
       return {
         items: [
           ...state.items,
-          { id: action.payload.product.id, quantity: action.payload.quantity },
+          {
+            id:
+              state.items.reduce((acc, prop) => Math.max(acc, prop.id), 0) + 1,
+            productId: action.payload.product.id,
+            quantity: action.payload.quantity,
+          },
         ],
       };
     default:

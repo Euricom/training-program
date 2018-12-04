@@ -53,14 +53,15 @@ export const getBasketWithProducts = createSelector(
   (products, basket): any => {
     const items = basket.items.map((itemInBasket) => {
       const productInBasket = products.find(
-        (product) => product.id === itemInBasket.id,
+        (product) => product.id === itemInBasket.productId,
       );
+      console.log('ELO', products, basket);
       if (productInBasket) {
         return {
           title: productInBasket.title,
           price: productInBasket.price,
           quantity: itemInBasket.quantity,
-          total: productInBasket.price * itemInBasket.quantity,
+          total: (productInBasket.price || 0) * itemInBasket.quantity,
         };
       }
       return { total: 0 };

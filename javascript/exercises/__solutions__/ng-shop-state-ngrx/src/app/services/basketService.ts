@@ -1,8 +1,8 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
-import { Product } from '@app/models/product.model';
 import { environment } from '@env/environment';
+import { IProductDTO } from './productService';
 
 export interface IBasketItemDTO {
   id: number;
@@ -24,7 +24,8 @@ export class BasketService {
     );
   }
 
-  addProduct(product: Product, quantity: number) {
+  addProduct(product: IProductDTO, quantity: number) {
+    console.log('QA', quantity);
     const resource = {
       quantity,
     };

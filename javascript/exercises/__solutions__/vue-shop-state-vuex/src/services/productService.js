@@ -1,6 +1,5 @@
 /* eslint-disable class-methods-use-this */
-
-import axios from 'axios';
+import { apiConfig } from './api';
 
 class ProductService {
   getAll(page = 0, sortExpression = '') {
@@ -10,11 +9,11 @@ class ProductService {
         sort: sortExpression,
       },
     };
-    return axios.get('https://euri-test-api.now.sh/api/products', config).then(res => res.data.selectedProducts);
+    return apiConfig.get('/products', config).then(res => res.data.selectedProducts);
   }
 
   getById(id) {
-    return axios.get(`https://euri-test-api.now.sh/api/products/${id}`).then(res => res.data);
+    return apiConfig.get(`/products/${id}`).then(res => res.data);
   }
 
   save(product) {
@@ -25,15 +24,15 @@ class ProductService {
   }
 
   update(product) {
-    return axios.put(`https://euri-test-api.now.sh/api/products/${product.id}`, product).then(res => res.data);
+    return apiConfig.put(`/products/${product.id}`, product).then(res => res.data);
   }
 
   create(product) {
-    return axios.post(`https://euri-test-api.now.sh/api/products`, product).then(res => res.data);
+    return apiConfig.post(`/products`, product).then(res => res.data);
   }
 
   delete(id) {
-    return axios.delete(`https://euri-test-api.now.sh/api/products/${id}`).then(res => res.data);
+    return apiConfig.delete(`/products/${id}`).then(res => res.data);
   }
 }
 

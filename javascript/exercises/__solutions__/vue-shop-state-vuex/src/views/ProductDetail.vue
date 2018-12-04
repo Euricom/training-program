@@ -1,6 +1,5 @@
 <template>
   <div>
-    {{ productsError }}
     <h1>Product Detail</h1>
     <form>
       <div class="row">
@@ -67,7 +66,7 @@
 import { required, minLength } from 'vuelidate/lib/validators';
 import { mapGetters } from 'vuex';
 
-import * as actionTypes from '@/store/actionTypes'
+import * as actionTypes from '@/store/actionTypes';
 
 export default {
   name: 'productDetail',
@@ -116,10 +115,8 @@ export default {
       this.$router.push('/admin');
     },
     onSubmit() {
-      console.log('saving', this.$v);
       this.$v.form.$touch();
       if (!this.$v.$invalid) {
-        console.log('woopa');
         Object.assign(this.form, this.$v.form.$model);
         this.form.price = Number(this.form.price);
         this.form.basePrice = Number(this.form.basePrice);
@@ -144,7 +141,7 @@ export default {
     formData() {
       return Object.assign(this.form, this.product(this.id));
     },
-    ...mapGetters(['product', 'productsError']),
+    ...mapGetters(['product']),
   },
 };
 </script>

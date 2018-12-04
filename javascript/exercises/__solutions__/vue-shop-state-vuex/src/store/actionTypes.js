@@ -6,3 +6,5 @@ export const SAVE_PRODUCT = 'SAVE_PRODUCT';
 export const DELETE_PRODUCT = 'DELETE_PRODUCT';
 export const GET_BASKET = 'GET_BASKET';
 export const CLEAR_BASKET = 'CLEAR_BASKET';
+export const RAISE_ERROR = 'RAISE_ERROR';
+export const RAISE_SUCCESS = 'RAISE_SUCCESS';

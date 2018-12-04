@@ -14,8 +14,10 @@
     "axios": "^0.18.0",
     "bootstrap": "3",
     "font-awesome": "^4.7.0",
+    "http-status": "^1.3.1",
     "vue": "^2.5.17",
     "vue-router": "^3.0.2",
+    "vue-toasted": "^1.1.26",
     "vuelidate": "^0.7.4",
     "vuex": "^3.0.1"
   },
@@ -26,6 +28,7 @@
     "@vue/cli-service": "^3.2.0",
     "@vue/eslint-config-airbnb": "^4.0.0",
     "@vue/test-utils": "^1.0.0-beta.26",
+    "axios-mock-adapter": "^1.15.0",
     "babel-core": "7.0.0-bridge.0",
     "babel-jest": "^23.0.1",
     "eslint-config-prettier": "^3.0.1",

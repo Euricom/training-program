@@ -17,9 +17,35 @@
 <script>
 import 'bootstrap/dist/css/bootstrap.css';
 import 'font-awesome/css/font-awesome.css';
+import { mapGetters } from 'vuex';
 
 export default {
   name: 'app',
   components: {},
+  mounted() {
+    this.$watch(
+      () => this.errors,
+      newVal => {
+        if (newVal) this.$toasted.error(newVal.message);
+      },
+      {
+        immediate: true,
+        deep: true,
+      },
+    );
+
+    this.$watch(
+      () => this.success,
+      newVal => {
+        if (newVal) this.$toasted.success(newVal);
+      },
+      {
+        immediate: true,
+      },
+    );
+  },
+  computed: {
+    ...mapGetters(['errors', 'success']),
+  },
 };
 </script>

@@ -1,7 +1,7 @@
 <template>
   <div class="col-md-12">
     <h2>Table View</h2>
-    {{ productsError }} <button class="btn btn-default" @click="onAdd();">Add Product</button>
+    <button class="btn btn-default" @click="onAdd();">Add Product</button>
     <table class="table table-hover">
       <thead>
         <tr>
@@ -64,10 +64,9 @@ export default {
   },
   mounted() {
     this.$store.dispatch('GET_PRODUCTS');
-    console.log('lozl', this.products);
   },
   computed: {
-    ...mapGetters(['products', 'productsError']),
+    ...mapGetters(['products']),
   },
 };
 </script>

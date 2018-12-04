@@ -1,11 +1,8 @@
-import { SET_PRODUCTS, SET_PRODUCTS_ERROR, REMOVE_PRODUCT, SET_PRODUCT } from '@/store/mutationTypes';
+import { SET_PRODUCTS, REMOVE_PRODUCT, SET_PRODUCT } from '@/store/mutationTypes';
 
 const mutations = {
   [SET_PRODUCTS](state, payload) {
     state.items = payload;
-  },
-  [SET_PRODUCTS_ERROR](state, error) {
-    state.error = error;
   },
   [REMOVE_PRODUCT](state, payload) {
     state.items = state.items.filter(item => item.id !== payload.id);

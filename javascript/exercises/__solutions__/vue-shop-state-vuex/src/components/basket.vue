@@ -1,7 +1,7 @@
 <template>
   <div>
     <h2>Basket</h2>
-    {{ basketError }} <span v-if="basket.items.length === 0">No Product in Basket</span>
+    <span v-if="basket.items.length === 0">No Product in Basket</span>
     <div v-if="basket.items.length > 0">
       <table class="table">
         <thead>
@@ -29,7 +29,7 @@
 
 <script>
 import { mapGetters } from 'vuex';
-import * as actionTypes from '@/store/actionTypes'
+import * as actionTypes from '@/store/actionTypes';
 
 export default {
   mounted() {
@@ -40,6 +40,6 @@ export default {
       this.$store.dispatch(actionTypes.CLEAR_BASKET);
     },
   },
-  computed: { ...mapGetters(['basket', 'basketError']) },
+  computed: { ...mapGetters(['basket']) },
 };
 </script>

@@ -8,7 +8,7 @@ const actions = {
       const basket = await basketService.get();
       commit(mutationTypes.SET_BASKET, basket);
     } catch (error) {
-      commit(mutationTypes.SET_BASKET_ERROR, error.message);
+      commit(mutationTypes.SET_ERROR, error.message);
     }
   },
   async [CLEAR_BASKET]({ commit }) {
@@ -16,7 +16,7 @@ const actions = {
       await basketService.delete();
       commit(mutationTypes.SET_BASKET, []);
     } catch (error) {
-      commit(mutationTypes.SET_BASKET_ERROR, error.message);
+      commit(mutationTypes.SET_ERROR, error.message);
     }
   },
   async [ADD_PRODUCT_TO_BASKET]({ commit }, productDto) {
@@ -24,7 +24,7 @@ const actions = {
       const basket = await basketService.addProduct(productDto.productId, productDto.quantity);
       commit(mutationTypes.SET_BASKET, basket);
     } catch (error) {
-      commit(mutationTypes.SET_BASKET_ERROR, error.message);
+      commit(mutationTypes.SET_ERROR, error.message);
     }
   },
 };

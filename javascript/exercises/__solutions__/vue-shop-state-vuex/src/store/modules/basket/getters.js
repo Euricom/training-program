@@ -3,7 +3,6 @@ const getters = {
     const { products, basket } = rootState;
     const basketItems = basket.items.map(item => {
       const basketItem = products.items.find(product => product.id === item.productId);
-      console.log(basketItem, item.productId);
       if (basketItem) {
         return {
           title: basketItem.title,
@@ -22,7 +21,6 @@ const getters = {
       total,
     };
   },
-  basketError: state => state.error,
 };
 
 export default getters;

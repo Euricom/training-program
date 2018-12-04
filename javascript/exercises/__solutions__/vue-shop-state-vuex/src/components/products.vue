@@ -1,6 +1,5 @@
 <template>
   <div>
-    {{ productsError }}
     <h2>Panel View</h2>
     <div class="flex-grid">
       <div class="col" v-for="product in products" :key="product.id"><product :product="product"></product></div>
@@ -18,10 +17,9 @@ export default {
   },
   mounted() {
     this.$store.dispatch('GET_PRODUCTS');
-    console.log('products', this.products);
   },
   computed: {
-    ...mapGetters(['products', 'productsError']),
+    ...mapGetters(['products']),
   },
 };
 </script>

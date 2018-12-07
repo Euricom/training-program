@@ -11,6 +11,7 @@ export default class ProductContainer extends Component {
   async componentDidMount() {
     try {
       const products = await api.products.getAll();
+      console.log('prods', products);
       this.setState({
         products,
       });

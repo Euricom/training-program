@@ -1,9 +1,11 @@
 import React, { Component } from 'react';
+import { Route } from 'react-router-dom';
 import { ToastContainer, toast } from 'react-toastify';
 import eventBus from 'pubsub-js';
 
-import ProductsContainer from './containers/ProductsContainer';
-import BasketContainer from './containers/BasketContainer';
+import Header from './components/Header';
+import ProductGridContainer from './containers/ProductGridContainer';
+import ProductTableContainer from './containers/ProductTableContainer';
 
 class App extends Component {
   constructor(props) {
@@ -18,14 +20,10 @@ class App extends Component {
   render() {
     return (
       <div id="app" className="container-fluid">
-        <h1>Web Shop</h1>
+        <Header />
         <div className="row">
-          <div className="col-md-8">
-            <ProductsContainer />
-          </div>
-          <div className="col-md-4">
-            <BasketContainer />
-          </div>
+          <Route path="/" exact component={ProductGridContainer} />
+          <Route path="/admin" component={ProductTableContainer} />
         </div>
         <ToastContainer autoClose={5000} position="bottom-right" />
       </div>

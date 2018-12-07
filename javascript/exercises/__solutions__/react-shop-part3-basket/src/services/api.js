@@ -44,7 +44,15 @@ instance.interceptors.response.use(
 export default {
   base: instance,
   products: {
-    getAll: () => instance.get(`/products`).then(res => res.data.selectedProducts),
+    getAll: (page = 0, sortExpression = '') => {
+      const config = {
+        params: {
+          page: page.toString(),
+          sort: sortExpression,
+        },
+      };
+      return instance.get(`/products`, config).then(res => res.data.selectedProducts);
+    },
     getById: id => instance.get(`products/${id}`).then(res => res.data),
   },
   basket: {

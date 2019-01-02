@@ -35,4 +35,22 @@ instance.interceptors.response.use(
   },
 );
 
-export default instance;
+export default {
+  base: instance,
+  products: {
+    getAll: (page = 0, sortExpression = '') => {
+      const config = {
+        params: {
+          page: page.toString(),
+          sort: sortExpression,
+        },
+      };
+      return instance.get(`/products`, config).then(res => {
+        const products = res.data.selectedProducts;
+        products.total = res.data.total;
+        return products;
+      });
+    },
+    getById: id => instance.get(`products/${id}`).then(res => res.data),
+  },
+};

@@ -1,7 +1,7 @@
 module.exports = {
   presets: [
-    [require('@babel/preset-env'), { debug: true }],
-    [require('@babel/preset-react'), { modules: false }],
+    require('@babel/preset-env'),
+    require('@babel/preset-react'),
     require('@babel/preset-flow'),
   ],
   plugins: [
@@ -13,6 +13,7 @@ module.exports = {
     [require('@babel/plugin-proposal-decorators'), { legacy: true }], // for MobX
 
     require('react-hot-loader/babel'),
+    require('@babel/plugin-transform-runtime'),
   ].filter(Boolean), // remove empty plugins
   env: {},
 };

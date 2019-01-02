@@ -18,8 +18,6 @@
     "formulahendry.auto-rename-tag",
     // Sorting HTML and Jade attributes
     "mrmlnc.vscode-attrs-sorter",
-    // js-beautify for VS Code (only used for html format)
-    "HookyQR.beautify",
     // eslint
     "dbaeumer.vscode-eslint",
     // Chrome debugger

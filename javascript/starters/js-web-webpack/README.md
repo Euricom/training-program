@@ -1,6 +1,8 @@
-# js-web-webpack-babel7
+# js-webpack
 
-This is a starter project to get up and running with ES6+ in the browser quick and easy.
+This is a starter project to get up and running with Webpack, Bootstrap, ES6+ and Babel quick and easy.
+
+More info about this setup can be found [here]( https://medium.freecodecamp.org/these-tools-will-help-you-write-clean-code-da4b5401f68e)
 
 ## Prerequisites
 
@@ -25,8 +27,9 @@ $ yarn test
 
 - [x] Basic Webpack setup with ES6+ transpiling and bundeling
 - [x] Npm Scripts: serve, build, lint, format and test
-- [x] VSCode recommended extensions and settings for ES development
-- [x] Prettier code formatting
+- [x] Includes Bootstrap 3.x 
+- [x] VSCode recommended extensions and settings for auto save/fix eslint & prettier formatting
+- [x] Auto prettier code formatting (on save)
+- [x] Auto eslint fix (on save)
 - [x] Unit Testing with Jest
 - [x] ES linting with ESLint and [AirBnb Style Guide](https://github.com/airbnb/javascript)
-- [x] Upgraded to Babel 7

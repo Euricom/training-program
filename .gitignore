@@ -6,5 +6,6 @@ bundle.js
 
 .cache/
 .cache-loader/
+.DS_Store
 
 .env

@@ -2,13 +2,18 @@
   // See http://go.microsoft.com/fwlink/?LinkId=827846
   // for the documentation about the extensions.json format
   "recommendations": [
-    // Format-on-save with Prettier
-    "esbenp.prettier-vscode",
-    // SCSS intellisense
+    // Extension identifier format: ${publisher}.${name}. Example: vscode.csharp
+
+    // Chrome debugger integration
+    "msjsdiag.debugger-for-chrome",
+    // SCSS syntax highliter
     "mrmlnc.vscode-scss",
-    // npm intellisense
-    "christian-kohler.npm-intellisense",
-    // path intellisense
+    // Tab, spaces editor config
+    "EditorConfig.editorconfig",
+    // Eslint
+    "dbaeumer.vscode-eslint",
+    // Prettier
+    "esbenp.prettier-vscode",
     "christian-kohler.path-intellisense",
     // Color Hightlight
     "naumovs.color-highlight",
@@ -16,13 +21,5 @@
     "formulahendry.auto-close-tag",
     // Auto Rename Tag
     "formulahendry.auto-rename-tag",
-    // Sorting HTML and Jade attributes
-    "mrmlnc.vscode-attrs-sorter",
-    // js-beautify for VS Code (only used for html format)
-    "HookyQR.beautify",
-    // eslint
-    "dbaeumer.vscode-eslint",
-    // Chrome debugger
-    "msjsdiag.debugger-for-chrome"
   ]
 }

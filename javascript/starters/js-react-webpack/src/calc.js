@@ -4,5 +4,3 @@ export function sum(a, b) {
 export function substract(a, b) {
   return a - b;
 }
-
-const x = 'aaaaaa';

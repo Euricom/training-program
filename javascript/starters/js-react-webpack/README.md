@@ -24,8 +24,10 @@ $ yarn test
 ## Features
 
 - [x] Basic React/Webpack setup with ES6+ transpiling and bundeling
+- [x] Based on Babel 7, WebPack 4 & React 3.6
 - [x] Npm Scripts: serve, build, lint, format and test
-- [x] VSCode recommended extensions and settings for ES development
-- [x] Prettier code formatting
+- [x] VSCode recommended extensions and settings for auto save/fix eslint & prettier formatting
+- [x] Auto prettier code formatting (on save)
+- [x] Auto eslint fix (on save)
 - [x] Unit Testing with Jest
 - [x] ES linting with ESLint and [AirBnb Style Guide](https://github.com/airbnb/javascript)

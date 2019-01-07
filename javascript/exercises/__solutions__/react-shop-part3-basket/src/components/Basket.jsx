@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { toCurrency } from '../core/intl';
 
-export default class BasketList extends Component {
+export default class Basket extends Component {
   render() {
     const { basket } = this.props;
     return (

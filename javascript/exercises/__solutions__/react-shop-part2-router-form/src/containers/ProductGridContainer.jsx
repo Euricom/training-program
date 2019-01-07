@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import InfiniteScroll from 'react-infinite-scroller';
-import eventBus from 'pubsub-js';
 
 import api from '../services/api';
 import ProductList from '../components/ProductList';
@@ -19,11 +18,6 @@ export default class ProductGridContainer extends Component {
     });
   };
 
-  handleAddProduct = (product, quantity) => {
-    eventBus.publish('addProduct', { product, quantity });
-    api.basket.addProduct(product, quantity);
-  };
-
   render() {
     const { products, hasMore } = this.state;
     return (
@@ -39,7 +33,7 @@ export default class ProductGridContainer extends Component {
               Loading ...
             </div>
           }>
-          <ProductList products={products} onAddProduct={this.handleAddProduct} />
+          <ProductList products={products} />
         </InfiniteScroll>
       </div>
     );

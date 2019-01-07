@@ -1,20 +1,15 @@
 import React, { Component } from 'react';
-import eventBus from 'pubsub-js';
 
-import Product from './Product';
+import ProductPanel from './ProductPanel';
 
 export default class ProductList extends Component {
-  addProduct(product, quantity) {
-    eventBus.publish('addProduct', { product, quantity });
-  }
-
   render() {
-    const { products } = this.props;
+    const { products, onAddProduct } = this.props;
     return (
       <div className="flex-grid">
         {products.map(product => (
           <div className="col" key={product.id}>
-            <Product product={product} onAdd={quantity => this.addProduct(product, quantity)} />
+            <ProductPanel product={product} onAdd={quantity => onAddProduct(product, quantity)} />
           </div>
         ))}
       </div>

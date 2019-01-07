@@ -1,84 +1,13 @@
 {
-  // ===
-  // Spacing
-  // ===
-  "editor.insertSpaces": true,
-  "editor.tabSize": 2,
-  "editor.trimAutoWhitespace": true,
-  "files.trimTrailingWhitespace": true,
-  "files.eol": "\n",
-  "files.insertFinalNewline": true,
-  "files.trimFinalNewlines": true,
-  // ===
-  // Files
-  // ===
-  "files.exclude": {
-    "**/*.log": true,
-    "**/*.log*": true,
-    "**/dist": true,
-    "**/coverage": true
-  },
+  // Make sure you don't forget to save when changing focus
   "files.autoSave": "onFocusChange",
-  // ===
-  // HTML
-  // ===
-  "html.format.enable": false,
-  "html.suggest.angular1": false,
-  "html.suggest.ionic": false,
-  "beautify.config": {
-    "editorconfig": true,
-    "indent_size": 2,
-    "wrap_attributes": "force-aligned",
-    "wrap_attributes_indent_size": 2,
-    "wrap_line_length": 80
-  },
-  "beautify.language": {
-    "html": ["htm", "html"]
-  },
-  "beautify.ignore": [
-    "**/*.js",
-    "**/*.ts",
-    "**/*.json",
-    "**/*.css",
-    "**/*.scss"
-  ],
-  "attrsSorter.order": [
-    "id",
-    "ref",
-    "key",
-    "slot",
-    "name",
-    "data-.+",
-    "ng-.+",
-    "src",
-    "for",
-    "type",
-    "href",
-    "values",
-    "title",
-    "alt",
-    "role",
-    "aria-.+",
-    "$unknown$"
-  ],
-  // ===
-  // Event Triggers
-  // ===
+  // I have set the value to false here because I don’t
+  // want the default editor configuration for file format
+  // to conflict with ESLint and Prettier.
   "editor.formatOnSave": true,
-  // ===
-  // JS(ON)
-  // ===
-  "javascript.validate.enable": false,
-  "javascript.format.enable": true,
-  "json.format.enable": true,
-  "eslint.validate": [
-    "javascript",
-    "javascriptreact",
-    "typescript",
-    "typescriptreact"
-  ],
-  "eslint.enable": true,
-  "tslint.enable": false,
-  "tslint.autoFixOnSave": true,
-  "javascript.updateImportsOnFileMove.enabled": "prompt",
+  // Since ESLint is configured with Prettier configurations,
+  // every time you hit save it will format and lint your code.
+  "eslint.autoFixOnSave": false,
+  // This is too much
+  "editor.formatOnPaste": false
 }

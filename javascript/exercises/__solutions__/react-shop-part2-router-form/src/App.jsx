@@ -4,7 +4,7 @@ import { Route } from 'react-router-dom';
 import { ToastContainer, toast } from 'react-toastify';
 
 import Header from './components/Header';
-import HomeContainer from './containers/HomeContainer';
+import ProductGridContainer from './containers/ProductGridContainer';
 import ProductTableContainer from './containers/ProductTableContainer';
 import ProductEditContainer from './containers/ProductEditContainer';
 
@@ -22,10 +22,10 @@ class App extends Component {
     return (
       <div id="app" className="container">
         <Header />
-        <Route path="/" exact component={HomeContainer} />
+        <Route path="/" exact component={ProductGridContainer} />
         <Route path="/admin" component={ProductTableContainer} />
-        <Route path="/edit" exact component={ProductEditContainer} />
-        <Route path="/edit/:id" exact component={ProductEditContainer} />
+        <Route path="/edit" component={ProductEditContainer} />
+        <Route path="/edit/:id" component={ProductEditContainer} />
         <ToastContainer autoClose={5000} position="bottom-right" />
       </div>
     );

@@ -26,8 +26,11 @@ export default class AddProductProduct extends Component {
             min="1"
             max="5"
             size="10"
-          />
-          <button type="button" className="btn btn-primary btn-sm" onClick={() => onClick(quantity)}>
+          />&nbsp;
+          <button
+            type="button"
+            className="btn btn-primary btn-sm"
+            onClick={() => onClick(quantity)}>
             Add
           </button>
         </div>

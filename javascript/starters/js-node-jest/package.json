@@ -1,0 +1,42 @@
+{
+  "name": "js-node-jest",
+  "version": "1.0.0",
+  "description": "Jest Node Template",
+  "scripts": {
+    "build": "babel . -d ./build --ignore node_modules",
+    "start": "nodemon main.js --exec babel-node",
+    "test:ci": "jest",
+    "test": "jest --watch",
+    "lint": "eslint \"**/*.{js,jsx}\" --fix",
+    "format": "prettier --write '**/*.{js,css,scss,json, html}'"
+  },
+  "author": "",
+  "license": "MIT",
+  "dependencies": {},
+  "devDependencies": {
+    "@babel/cli": "^7.2.0",
+    "@babel/core": "^7.2.0",
+    "@babel/node": "^7.2.0",
+    "babel-core": "^7.0.0-bridge.0",
+    "babel-eslint": "^10.0.1",
+    "babel-jest": "^23.6.0",
+    "babel-preset-airbnb": "^3.2.0",
+    "eslint": "^5.10.0",
+    "eslint-config-airbnb-base": "^13.1.0",
+    "eslint-config-prettier": "^3.3.0",
+    "eslint-plugin-import": "^2.14.0",
+    "eslint-plugin-jest": "^22.1.2",
+    "jest": "^23.6.0",
+    "jest-extended": "^0.11.0",
+    "jest-watch-typeahead": "^0.2.0",
+    "prettier": "^1.15.3"
+  },
+  "jest": {
+    "verbose": false,
+    "setupTestFrameworkScriptFile": "<rootDir>/test/setupJest.js",
+    "watchPlugins": [
+      "jest-watch-typeahead/filename",
+      "jest-watch-typeahead/testname"
+    ]
+  }
+}

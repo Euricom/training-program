@@ -1,7 +1,8 @@
 {
-  "extends": ["airbnb", "prettier"],
-  "globals": {},
+  "extends": ["airbnb", "plugin:jest/recommended", "prettier"],
+  "plugins": ["import"],
   "parser": "babel-eslint",
+  "globals": {},
   "env": {
     "es6": true,
     "browser": true,

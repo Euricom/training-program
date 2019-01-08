@@ -2,8 +2,8 @@ const path = require('path');
 
 module.exports = {
   extends: ['airbnb', 'plugin:jest/recommended', 'prettier'],
-  plugins: ['babel', 'import', 'prettier'],
-  parser: 'babel-eslint',
+  plugins: ['import'],
+  parser: 'pluggable-babel-eslint',
   globals: {},
   env: {
     es6: true,
@@ -42,8 +42,5 @@ module.exports = {
     'linebreak-style': 'off', // Don't play nicely with Windows.
     'consistent-return': 'off', // Not our taste?
     'no-plusplus': 'off', // Not our taste?
-
-    // prettier
-    'prettier/prettier': ['error'], // run prettier during --fix fase
   },
 };

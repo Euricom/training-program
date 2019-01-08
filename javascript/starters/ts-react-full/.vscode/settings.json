@@ -5,14 +5,13 @@
   // I have set the value to false here because I don’t
   // want the default editor configuration for file format
   // to conflict with ESLint and Prettier.
-  "editor.formatOnSave": false,
+  "editor.formatOnSave": true,
   "editor.formatOnPaste": false,
-
-  // Since ESLint is configured with Prettier configurations,
-  // every time you hit save it will format and lint your code.
-  "eslint.autoFixOnSave": true,
+  "eslint.autoFixOnSave": false,
   "eslint.validate": [
-    { "language": "javascript", "autoFix": true },
-    { "language": "typescript", "autoFix": true }
+    { "language": "javascript" },
+    { "language": "javascriptreact" },
+    { "language": "typescript" },
+    { "language": "typescriptreact" },
   ]
 }

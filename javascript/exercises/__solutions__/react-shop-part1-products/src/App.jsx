@@ -8,11 +8,9 @@ class App extends Component {
     viewMode: 'grid',
   };
   handleSwitchView = () => {
-    this.setState(state => {
-      return {
-        viewMode: state.viewMode === 'grid' ? 'table' : 'grid',
-      };
-    });
+    this.setState(state => ({
+      viewMode: state.viewMode === 'grid' ? 'table' : 'grid',
+    }));
   };
 
   renderView() {

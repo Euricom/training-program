@@ -1,7 +1,7 @@
 module.exports = {
   extends: ['airbnb', 'plugin:jest/recommended', 'prettier'],
-  plugins: ['babel', 'import', 'prettier'],
-  parser: 'babel-eslint',
+  plugins: ['import'],
+  parser: 'pluggable-babel-eslint',
   parserOptions: {
     ecmaVersion: 6,
     sourceType: 'module',
@@ -18,7 +18,7 @@ module.exports = {
   },
   rules: {
     // react
-    'react/jsx-filename-extension': [1, { extensions: ['.js', '.jsx', '.tsx'] }],
+    'react/jsx-filename-extension': [1, { extensions: ['.js', '.jsx'] }],
 
     // only allowed in development
     'no-console': process.env.NODE_ENV === 'production' ? 'error' : 'off',
@@ -26,7 +26,7 @@ module.exports = {
 
     // reducing complexity
     // see https://wecodetheweb.com/2016/11/05/improving-code-quality-using-eslint/
-    'complexity': [2, 5],
+    complexity: [2, 5],
     'max-statements': [2, 9],
     'max-statements-per-line': [2, { max: 1 }],
     'max-nested-callbacks': [2, 3],
@@ -36,8 +36,5 @@ module.exports = {
     'linebreak-style': 'off', // Don't play nicely with Windows.
     'consistent-return': 'off', // Not our taste?
     'no-plusplus': 'off', // Not our taste?
-
-    // prettier
-    'prettier/prettier': ['error'], // run prettier during --fix fase
   },
 };

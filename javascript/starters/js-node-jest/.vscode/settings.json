@@ -5,12 +5,7 @@
   // I have set the value to false here because I don’t
   // want the default editor configuration for file format
   // to conflict with ESLint and Prettier.
-  "editor.formatOnSave": false,
-
-  // Since ESLint is configured with Prettier configurations,
-  // every time you hit save it will format and lint your code.
-  "eslint.autoFixOnSave": true,
-
-  // This is too much
+  "editor.formatOnSave": true,
+  "eslint.autoFixOnSave": false,
   "editor.formatOnPaste": false
 }

@@ -1,42 +1,27 @@
 {
   "name": "js-node",
   "version": "1.0.0",
-  "description": "ES.Next Node Template",
+  "description": "ES Node Template",
   "scripts": {
     "build": "babel . -d ./build --ignore node_modules",
-    "start": "nodemon ./src/main.js --exec babel-node",
-    "lint": "eslint \"**/*.js\"",
-    "format": "prettier --write '**/*.{js,ts,css}'",
-    "test:ci": "jest",
-    "test": "jest --watch --notify"
+    "start": "nodemon src/main.js --exec babel-node",
+    "lint": "eslint \"src/**/*.js\" --fix",
+    "format": "prettier --write '**/*.{js,json,css,scss}'"
   },
   "author": "",
   "license": "MIT",
   "dependencies": {},
   "devDependencies": {
-    "@babel/cli": "^7.0.0-beta.49",
-    "@babel/core": "^7.0.0-beta.49",
-    "@babel/node": "^7.0.0-beta.49",
-    "@babel/preset-env": "^7.0.0-beta.49",
-    "@babel/preset-stage-2": "^7.0.0-beta.49",
-    "babel-core": "7.0.0-bridge.0",
-    "babel-jest": "^23.0.1",
-    "eslint": "^4.19.1",
-    "eslint-config-airbnb-base": "^12.1.0",
-    "eslint-config-prettier": "^2.9.0",
-    "eslint-plugin-import": "^2.12.0",
-    "jasmine-expect": "^3.8.3",
-    "jest": "^23.1.0",
-    "jest-watch-typeahead": "^0.1.0",
-    "nodemon": "^1.17.5",
-    "prettier": "^1.6.1"
-  },
-  "jest": {
-    "verbose": false,
-    "setupTestFrameworkScriptFile": "<rootDir>/setupJest.js",
-    "watchPlugins": [
-      "jest-watch-typeahead/filename",
-      "jest-watch-typeahead/testname"
-    ]
+    "@babel/cli": "^7.2.0",
+    "@babel/core": "^7.2.0",
+    "@babel/node": "^7.2.0",
+    "babel-core": "^7.0.0-bridge.0",
+    "babel-eslint": "^10.0.1",
+    "babel-preset-airbnb": "^3.2.0",
+    "eslint": "^5.10.0",
+    "eslint-config-airbnb-base": "^13.1.0",
+    "eslint-config-prettier": "^3.3.0",
+    "eslint-plugin-import": "^2.14.0",
+    "prettier": "^1.15.3"
   }
 }

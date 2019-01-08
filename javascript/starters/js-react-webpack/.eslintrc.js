@@ -1,6 +1,6 @@
 module.exports = {
   extends: ['airbnb', 'plugin:jest/recommended', 'prettier'],
-  plugins: ['babel', 'import', 'prettier'],
+  plugins: ['import'],
   parser: 'babel-eslint',
   parserOptions: {
     ecmaVersion: 6,
@@ -22,7 +22,5 @@ module.exports = {
     'no-console': 'off', // Good for debugging, bad for production
     'consistent-return': 'off', // Not our taste?
     'no-plusplus': 'off', // Not our taste?
-
-    'prettier/prettier': ['error'], // run prettier during --fix fase
   },
 };
